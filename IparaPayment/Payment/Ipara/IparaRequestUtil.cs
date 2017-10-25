@@ -84,14 +84,14 @@ namespace IparaPayment.Payment.Ipara
                 byte[] buffer = System.Text.Encoding.UTF8.GetBytes(xmlData);
 
                 HttpWebRequest httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
-                httpWebRequest.Headers.Add("transactionDate", dateTime);
-                httpWebRequest.Headers.Add("version", version);
-                httpWebRequest.Headers.Add("token", token);
-
                 httpWebRequest.Method = WebRequestMethods.Http.Post;
+                httpWebRequest.ContentLength = buffer.Length;
                 httpWebRequest.Accept = "application/xml";
                 httpWebRequest.ContentType = "application/xml; charset=utf-8";
-                httpWebRequest.ContentLength = buffer.Length;
+                httpWebRequest.Headers.Add("transactionDate", dateTime);
+                httpWebRequest.Headers.Add("version", version);
+                httpWebRequest.Headers.Add("token", token);                               
+                                
                 System.IO.Stream rs = httpWebRequest.GetRequestStream();
                 rs.Write(buffer, 0, buffer.Length);
                 rs.Close();
