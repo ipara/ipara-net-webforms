@@ -1,8 +1,0 @@
-C:\dev\workspace\dotnet\Ipara\IparaPayment\bin\Debug\IparaPayment.dll
-C:\dev\workspace\dotnet\Ipara\IparaPayment\bin\Debug\IparaPayment.pdb
-C:\dev\workspace\dotnet\Ipara\IparaPayment\obj\Debug\IparaPayment.dll
-C:\dev\workspace\dotnet\Ipara\IparaPayment\obj\Debug\IparaPayment.pdb
-C:\Users\cparilti.DOMAINIST\Desktop\Ipara\IparaPayment\bin\Debug\IparaPayment.dll
-C:\Users\cparilti.DOMAINIST\Desktop\Ipara\IparaPayment\bin\Debug\IparaPayment.pdb
-C:\Users\cparilti.DOMAINIST\Desktop\Ipara\IparaPayment\obj\Debug\IparaPayment.dll
-C:\Users\cparilti.DOMAINIST\Desktop\Ipara\IparaPayment\obj\Debug\IparaPayment.pdb
