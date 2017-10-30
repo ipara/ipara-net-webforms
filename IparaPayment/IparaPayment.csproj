@@ -48,6 +48,7 @@
     <Compile Include="Payment\Ipara\Entity\Purchaser.cs" />
     <Compile Include="Payment\Ipara\IparaRequest.cs" />
     <Compile Include="Payment\Ipara\Entity\PaymetResponse.cs" />
+    <Compile Include="Payment\Ipara\Settings.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

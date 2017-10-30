@@ -11,9 +11,9 @@ namespace IparaPaymentDemo
 {
     public partial class TheeDResult : System.Web.UI.Page
     {
-        private string publicKey = "Mağaza Public Key Bilginiz";
-        private string privateKey = "Mağaza Private Key Bilginiz";     
-        // private string vendorId = "100";
+        private string publicKey = Settings.PublicKey;
+        private string privateKey = Settings.PrivateKey;
+        private string vendorId = Settings.VendorId;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -39,7 +39,7 @@ namespace IparaPaymentDemo
                     IparaAuth auth = Session["Ipara-Auth"] as IparaAuth;
                     auth.ThreeDSecureCode = response.ThreeDSecureCode;
                     auth.Echo = "Echo Bilgisi";
-                    // auth.VendorId = this.vendorId;
+                    auth.VendorId = this.vendorId;
 
                     response = payment.PayThreeDResult(auth);
 

@@ -11,10 +11,10 @@ namespace IparaPaymentDemo
 {
     public partial class Demo : System.Web.UI.Page
     {
-        private string publicKey = "Mağaza Public Key Bilginiz";
-        private string privateKey = "Mağaza Private Key Bilginiz";
-        private string mode = "T";
-        // private string vendorId = "100";
+        private string publicKey = Settings.PublicKey;
+        private string privateKey = Settings.PrivateKey;
+        private string mode = Settings.Mode;
+        private string vendorId = Settings.VendorId;
 
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -25,8 +25,8 @@ namespace IparaPaymentDemo
                 lblOrderId.Text = Guid.NewGuid().ToString();
                 tbCardOwnerName.Text = "Murat Kaya";
                 tbCardNumber.Text = "4282209004348015";
-                tbCardExpireMonth.Text = "02";
-                tbCardExpireYear.Text = "15";
+                tbCardExpireMonth.Text = "12";
+                tbCardExpireYear.Text = "21";
                 tbInstallment.Text = "1";
                 tbCvc.Text = "123";
 

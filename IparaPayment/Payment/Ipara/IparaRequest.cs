@@ -12,19 +12,47 @@ using IparaPayment.Payment.Ipara.Entity;
 
 namespace IparaPayment.Payment.Ipara
 {
+    /// <summary>
+    /// Ornek IPara odemesinin hazirlanmasi icin tasarlanmistir. <value> ipara base url + "/rest/payment/auth"</value> uzerinden hazirlanmis olan odeme istegini gonderir.
+    /// <para>
+    /// Ornek kod icindeki akista gerekli parametrelerin ortak yönetimi icin <see cref="IparaPayment.Payment.Ipara.Settings"/> class'ini inceleyiniz.
+    /// </para>
+    /// 
+    /// </summary>
     public class IparaRequest
     {
-        private string _authUrl = "https://api.ipara.com/rest/payment/auth";
-        private string _threeDUrl = "https://www.ipara.com/3dgate";
-        private string _version = "1.0";
+        /// <summary>
+        /// <para><param name="authUrl">Ipara API URL degerini hazirlar.</param></para>
+        /// <para><paramref name="BaseIparaAPIUrl"/> parametresinin ayrintilari icin bakiniz: <seealso cref="Settings"/></para>
+        /// </summary>
+        private string authUrl = Settings.BaseIparaAPIUrl + "/rest/payment/auth";
+        /// <summary>
+        /// <para><param name="authUrl">Ipara Three 3 sogulamasi icin URL degerini hazirlar.</param></para>
+        /// <para><paramref name="BaseIparaThreeDUrl"/> parametresinin ayrintilari icin bakiniz: <seealso cref="Settings"/></para>
+        /// </summary>
+        private string threeDUrl = Settings.BaseIparaThreeDUrl + "/3dgate";
+        /// <summary>
+        /// <para><param name="authUrl">Kullanilan IPara API versiyonunu belirtir.</param></para>
+        /// <para><paramref name="Version"/> parametresinin ayrintilari icin bakiniz: <seealso cref="Settings"/></para>
+        /// </summary>
+        private string version = Settings.Version;
 
-        private string _privateKey { get; set; }
-        private string _publicKey { get; set; }
+        private string privateKey { get; set; }
+        private string publicKey { get; set; }
 
+        /// <summary>
+        /// <para>
+        /// Ornek IPara odemesinin hazirlanmasi icin tasarlanmistir. <value> ipara base url + "/rest/payment/auth"</value> uzerinden hazirlanmis olan odeme istegini gonderir.
+        /// Magazaniza ait size iletilmis olan Acik-Gizli Anahtar bilgisine ihtiyac duyar.
+        /// </para>
+        /// <para>
+        /// Ornek kod icindeki akista gerekli parametrelerin ortak yönetimi icin <see cref="IparaPayment.Payment.Ipara.Settings"/> class'ini inceleyiniz.
+        /// </para>
+        /// </summary>
         public IparaRequest(string publicKey, string privateKey)
         {
-            this._privateKey = privateKey;
-            this._publicKey = publicKey;
+            this.privateKey = privateKey;
+            this.publicKey = publicKey;
         }
 
         // API ile Odeme Metodu
@@ -37,12 +65,12 @@ namespace IparaPayment.Payment.Ipara
             {
                 string dateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
-                string hashText = this._privateKey + auth.OrderId + auth.Amount + auth.Mode + auth.CardOwnerName +
+                string hashText = this.privateKey + auth.OrderId + auth.Amount + auth.Mode + auth.CardOwnerName +
                    auth.CardNumber + auth.CardExpireMonth + auth.CardExpireYear + auth.Cvc + auth.Purchaser.Name + auth.Purchaser.SurName + auth.Purchaser.Email + dateTime;
 
-                string token = this._publicKey + ":" + IparaRequestUtil.GetSHA1(hashText);
+                string token = this.publicKey + ":" + IparaRequestUtil.GetSHA1(hashText);
 
-                string response = IparaRequestUtil.ApiRequest(token, this._version, dateTime, xmlData, this._authUrl);
+                string response = IparaRequestUtil.ApiRequest(token, this.version, dateTime, xmlData, this.authUrl);
 
                 PaymetResponse paymentResponse = IparaRequestUtil.DeserializeObject<PaymetResponse>(response);
 
@@ -54,6 +82,10 @@ namespace IparaPayment.Payment.Ipara
                 throw new Exception("Ödeme isteği gönderilirken beklenmedik bir hata oluştu!");
         }
 
+        /// <summary>
+        /// 3D Secure ile odeme metodudur. 3D sorgulamasi sonrasinda basarili sonuc alinmasini takiben cagrilmalidir. 3D sorgulamasi sonrasi odemenin otorizasyon asamasinin tamamlanmasini saglar.
+        /// </summary>
+        /// <param name="auth"> : odeme otorizasyonunun saglanmasi icin gerekli bilgileri iceren objedir.</param>
         public PaymetResponse PayThreeDResult(IparaAuth auth)
         {
             auth.CardExpireMonth = null;
@@ -72,11 +104,11 @@ namespace IparaPayment.Payment.Ipara
             {
                 string dateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
-                string hashText = this._privateKey + auth.OrderId + auth.Amount + auth.Mode + auth.ThreeDSecureCode + dateTime;
+                string hashText = this.privateKey + auth.OrderId + auth.Amount + auth.Mode + auth.ThreeDSecureCode + dateTime;
 
-                string token = this._publicKey + ":" + IparaRequestUtil.GetSHA1(hashText);
+                string token = this.publicKey + ":" + IparaRequestUtil.GetSHA1(hashText);
 
-                string response = IparaRequestUtil.ApiRequest(token, this._version, dateTime, xmlData, this._authUrl);
+                string response = IparaRequestUtil.ApiRequest(token, this.version, dateTime, xmlData, this.authUrl);
 
                 PaymetResponse paymentResponse = IparaRequestUtil.DeserializeObject<PaymetResponse>(response);
 
@@ -88,24 +120,31 @@ namespace IparaPayment.Payment.Ipara
                 throw new Exception("Ödeme isteği gönderilirken beklenmedik bir hata oluştu!");
         }
 
-        //3D Secure ile Odeme Methodu
+        /// <summary>
+        /// 3D Secure ile Odeme Oncesi 3D sorgulaması gerceklestirilmesi icin gerekli metottur. Bu asama basari ile sonuclanir ise islemin metoda girilmis olan <paramref name="successUrl"/><param/> uzerinden
+        /// 3D odemenin tamamlanmasi icin hazirlanmis bir kurguya yonlenmesi beklenir.
+        /// <remarks><para>Ayrica Bakiniz : <seealso cref="IparaPaymentDemo.ThreeDResult"/></para></remarks>
+        /// </summary>
+        /// <param name="auth"> : odeme otorizasyonunun saglanmasi icin gerekli bilgileri iceren objedir.</param>
+        /// <param name="successUrl"> : basarili 3D odeme sorgusu sonunda, sonucun post edilecegi yeniden yonlenme URL adresidir.</param>
+        /// <param name="failureUrl"> : basarisiz 3D odeme sorgusu sonucunun post edilecegi yeniden yonlenme URL adresidir.</param>
         public void PayThreeD(IparaAuth auth, String successUrl, String failureUrl)
         {
             auth.ThreeD = "true";
 
             string dateTime = DateTime.Now.ToString("yyyy-MM-dd HH:mm:ss");
 
-            string hashText = this._privateKey + auth.OrderId + auth.Amount + auth.Mode + auth.CardOwnerName +
+            string hashText = this.privateKey + auth.OrderId + auth.Amount + auth.Mode + auth.CardOwnerName +
                auth.CardNumber + auth.CardExpireMonth + auth.CardExpireYear + auth.Cvc + auth.Purchaser.Name + auth.Purchaser.SurName + auth.Purchaser.Email + dateTime;
 
-            string token = this._publicKey + ":" + IparaRequestUtil.GetSHA1(hashText);
+            string token = this.publicKey + ":" + IparaRequestUtil.GetSHA1(hashText);
 
             StringBuilder builder = new StringBuilder();
 
             builder.Append("<!DOCTYPE HTML PUBLIC \"-//W3C//DTD HTML 4.0 Transitional//EN\">");
             builder.Append("<html>");
             builder.Append("<body>");
-            builder.Append("<form action=\"" + this._threeDUrl + "\" method=\"post\" id=\"three_d_form\"/>");
+            builder.Append("<form action=\"" + this.threeDUrl + "\" method=\"post\" id=\"three_d_form\"/>");
             builder.Append("<input type=\"hidden\" name=\"orderId\" value=\"" + auth.OrderId + "\"/>");
             builder.Append("<input type=\"hidden\" name=\"amount\" value=\"" + auth.Amount + "\"/>");
             builder.Append("<input type=\"hidden\" name=\"cardOwnerName\" value=\"" + auth.CardOwnerName + "\"/>");
@@ -121,7 +160,7 @@ namespace IparaPayment.Payment.Ipara
             builder.Append("<input type=\"hidden\" name=\"successUrl\" value=\"" + successUrl + "\"/>");
             builder.Append("<input type=\"hidden\" name=\"failureUrl\" value=\"" + failureUrl + "\"/>");
             builder.Append("<input type=\"hidden\" name=\"echo\" value=\"" + auth.Echo + "\"/>");
-            builder.Append("<input type=\"hidden\" name=\"version\" value=\"" + this._version + "\"/>");
+            builder.Append("<input type=\"hidden\" name=\"version\" value=\"" + this.version + "\"/>");
             builder.Append("<input type=\"hidden\" name=\"transactionDate\" value=\"" + dateTime + "\"/>");
             builder.Append("<input type=\"hidden\" name=\"token\" value=\"" + token + "\"/>");
             builder.Append("<input type=\"submit\" value=\"Öde\" style=\"display:none;\"/>");
@@ -185,7 +224,7 @@ namespace IparaPayment.Payment.Ipara
                 throw new Exception("Ödeme cevabı hash bilgisi boş. [result : " + paymentResponse.Result + ",error_code : " + paymentResponse.Errorcode + ",error_message : " + paymentResponse.ErrorMessage + "]");
 
             string hashText = paymentResponse.OrderId + paymentResponse.Result + paymentResponse.Amount + paymentResponse.Mode + paymentResponse.Errorcode +
-               paymentResponse.ErrorMessage + paymentResponse.TransactionDate + this._publicKey + this._privateKey;
+               paymentResponse.ErrorMessage + paymentResponse.TransactionDate + this.publicKey + this.privateKey;
 
             if (IparaRequestUtil.GetSHA1(hashText) != paymentResponse.Hash)
                 throw new Exception("Ödeme cevabı hash doğrulaması hatalı. [result : " + paymentResponse.Result + ",error_code : " + paymentResponse.Errorcode + ",error_message : " + paymentResponse.ErrorMessage + "]");
