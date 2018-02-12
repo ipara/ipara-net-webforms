@@ -10,7 +10,7 @@
 namespace IparaPaymentDemo {
     
     
-    public partial class TheeDResult {
+    public partial class ThreeDResult {
         
         /// <summary>
         /// form1 control.

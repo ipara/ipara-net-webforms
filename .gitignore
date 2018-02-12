@@ -3,5 +3,8 @@
 **/bin
 **/obj
 *.suo
-
-
+*/packages
+**/packages
+.vs
+*/config
+.vs/config/applicationhost.config

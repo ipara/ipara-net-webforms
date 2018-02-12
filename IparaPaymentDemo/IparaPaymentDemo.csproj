@@ -20,6 +20,8 @@
     <IISExpressWindowsAuthentication />
     <IISExpressUseClassicPipelineMode />
     <TargetFrameworkProfile />
+    <Use64BitIISExpress />
+    <UseGlobalApplicationHostFile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <DebugSymbols>true</DebugSymbols>
@@ -66,7 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Demo.aspx" />
-    <Content Include="TheeDResult.aspx" />
+    <Content Include="ThreeDResult.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -79,12 +81,12 @@
     </Compile>
     <Compile Include="PaymentIpara.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="TheeDResult.aspx.cs">
-      <DependentUpon>TheeDResult.aspx</DependentUpon>
+    <Compile Include="ThreeDResult.aspx.cs">
+      <DependentUpon>ThreeDResult.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="TheeDResult.aspx.designer.cs">
-      <DependentUpon>TheeDResult.aspx</DependentUpon>
+    <Compile Include="ThreeDResult.aspx.designer.cs">
+      <DependentUpon>ThreeDResult.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

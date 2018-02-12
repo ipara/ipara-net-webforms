@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="TheeDResult.aspx.cs" Inherits="IparaPaymentDemo.TheeDResult" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="ThreeDResult.aspx.cs" Inherits="IparaPaymentDemo.ThreeDResult" %>
 
 <!DOCTYPE html>
 

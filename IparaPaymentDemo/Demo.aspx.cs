@@ -218,8 +218,8 @@ namespace IparaPaymentDemo
             try
             {
                 Session["Ipara-Auth"] = auth;
-                string successUrl = Request.Url.Scheme + "://" + Request.Url.Authority + "/TheeDResult.aspx"; // "http://www.magazaniz.com/demo.aspx?type=response&three_d_response=success";
-                string failureUrl = Request.Url.Scheme + "://" + Request.Url.Authority + "/TheeDResult.aspx";  //"http://www.magazaniz.com/demo.aspx?type=response&three_d_response=failure";
+                string successUrl = Request.Url.Scheme + "://" + Request.Url.Authority + "/ThreeDResult.aspx"; // "http://www.magazaniz.com/demo.aspx?type=response&three_d_response=success";
+                string failureUrl = Request.Url.Scheme + "://" + Request.Url.Authority + "/ThreeDResult.aspx";  //"http://www.magazaniz.com/demo.aspx?type=response&three_d_response=failure";
                 request.PayThreeD(auth, successUrl, failureUrl);
             }
             catch (Exception ex)

@@ -9,7 +9,7 @@ using System.Web.UI.WebControls;
 
 namespace IparaPaymentDemo
 {
-    public partial class TheeDResult : System.Web.UI.Page
+    public partial class ThreeDResult : System.Web.UI.Page
     {
         private string publicKey = Settings.PublicKey;
         private string privateKey = Settings.PrivateKey;
