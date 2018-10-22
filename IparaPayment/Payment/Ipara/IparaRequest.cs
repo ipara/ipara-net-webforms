@@ -69,6 +69,7 @@ namespace IparaPayment.Payment.Ipara
                    auth.CardNumber + auth.CardExpireMonth + auth.CardExpireYear + auth.Cvc + auth.Purchaser.Name + auth.Purchaser.SurName + auth.Purchaser.Email + dateTime;
 
                 string token = this.publicKey + ":" + IparaRequestUtil.GetSHA1(hashText);
+                ServicePointManager.SecurityProtocol = (SecurityProtocolType)3072;
 
                 string response = IparaRequestUtil.ApiRequest(token, this.version, dateTime, xmlData, this.authUrl);
 
