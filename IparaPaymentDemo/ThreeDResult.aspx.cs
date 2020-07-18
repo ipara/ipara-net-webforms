@@ -30,12 +30,13 @@ namespace IparaPaymentDemo
 
                 if (response.Result.Equals("1"))
                 {
+                    
                     if (Session["Ipara-Auth"] == null)
                     {
                         lblMessage.Text = "ÖDEME İŞLEMİNİZ BAŞARISIZ. Session bulunamadı.";
                         return;
                     }
-
+                    
                     IparaAuth auth = Session["Ipara-Auth"] as IparaAuth;
                     auth.ThreeDSecureCode = response.ThreeDSecureCode;
                     auth.Echo = "Echo Bilgisi";

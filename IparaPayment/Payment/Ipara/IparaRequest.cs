@@ -183,7 +183,9 @@ namespace IparaPayment.Payment.Ipara
             HttpContext.Current.Response.Clear();
 
             HttpContext.Current.Response.Write(builder.ToString());
-            HttpContext.Current.Response.End();
+            HttpContext.Current.Response.Flush();
+            HttpContext.Current.Response.SuppressContent = true;
+            HttpContext.Current.ApplicationInstance.CompleteRequest();
         }
 
         // 3D Secure Sonucunun Islenmesi ve Hash Gecerlilik Kontrolu

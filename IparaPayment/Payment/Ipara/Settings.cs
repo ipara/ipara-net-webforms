@@ -13,11 +13,11 @@ namespace IparaPayment.Payment.Ipara
         /// <summary>
         /// Lutfen size iletilmis olan magazaniza ait Public Key - Acik Anahtar bilgisini bu parametrede yaziniz.
         /// </summary>
-        public static readonly string PublicKey = "";
+        public static readonly string PublicKey = "WY48CP014UFLQ4A";
         /// <summary>
         /// Lutfen size iletilmis olan magazaniza ait Private Key - Gizli Anahtar bilgisini bu parametrede yaziniz.
         /// </summary>
-        public static readonly string PrivateKey = "";
+        public static readonly string PrivateKey = "WY48CP014UFLQ4A0VSW12US00";
         /// <summary>
         ///  Modun "T" olmasi odemenin bir test odemesi oldugunu belirtir.
         /// </summary>

@@ -1,15 +1,15 @@
-﻿using IparaPayment.Payment.Ipara;
-using IparaPayment.Payment.Ipara.Entity;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using IparaPayment.Payment.Ipara;
+using IparaPayment.Payment.Ipara.Entity;
 
 namespace IparaPaymentDemo
 {
-    public partial class Demo : System.Web.UI.Page
+    public partial class Default : System.Web.UI.Page
     {
         private string publicKey = Settings.PublicKey;
         private string privateKey = Settings.PrivateKey;
@@ -21,7 +21,7 @@ namespace IparaPaymentDemo
             if (!IsPostBack)
             {
 
-
+                
                 #region Kart bilgileri
 
                 lblOrderId.Text = Guid.NewGuid().ToString();
@@ -99,7 +99,7 @@ namespace IparaPaymentDemo
             decimal sumAmount = (decimal.Parse(tbProductPrice1.Text) * int.Parse(tbProductQuatity1.Text)) + (decimal.Parse(tbProductPrice2.Text) * int.Parse(tbProductQuatity2.Text));
 
             auth.OrderId = lblOrderId.Text;
-            auth.Amount = String.Format("{0:0.00}", sumAmount).Replace(".", "").Replace(",","");
+            auth.Amount = String.Format("{0:0.00}", sumAmount).Replace(".", "").Replace(",", "");
             auth.CardOwnerName = tbCardOwnerName.Text;
             auth.CardNumber = tbCardNumber.Text;
             auth.CardExpireMonth = tbCardExpireMonth.Text;
@@ -214,6 +214,7 @@ namespace IparaPaymentDemo
 
         protected void btnThreeD_Click(object sender, EventArgs e)
         {
+
             IparaRequest request = new IparaRequest(publicKey, privateKey);
             IparaAuth auth = LoadPayment();
 
