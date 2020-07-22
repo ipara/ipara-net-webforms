@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entity\BankCard.cs" />
+    <Compile Include="Entity\PaymentLink.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="JsonBuilder.cs" />
     <Compile Include="Payment\Ipara\IparaRequestUtil.cs" />
@@ -65,11 +66,13 @@
     <Compile Include="Request\Base.cs" />
     <Compile Include="Request\BinNumberInquiryRequest.cs" />
     <Compile Include="Request\LinkPaymentCreateRequest.cs" />
+    <Compile Include="Request\LinkPaymentListRequest.cs" />
     <Compile Include="Response\BankCardCreateResponse.cs" />
     <Compile Include="Response\BankCardDeleteResponse.cs" />
     <Compile Include="Response\BankCardInquryResponse.cs" />
     <Compile Include="Response\BinNumberInquiryResponse.cs" />
     <Compile Include="Response\LinkPaymentCreateResponse.cs" />
+    <Compile Include="Response\LinkPaymentListResponse.cs" />
     <Compile Include="RestHttpCaller.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="XmlBuilder.cs" />
