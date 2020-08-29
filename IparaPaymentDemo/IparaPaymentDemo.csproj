@@ -75,6 +75,7 @@
     <Content Include="DeleteCardFromWallet.aspx" />
     <Content Include="GetCardFromWallet.aspx" />
     <Content Include="LinkPaymentCreate.aspx" />
+    <Content Include="LinkPaymentDelete.aspx" />
     <Content Include="LinkPaymentList.aspx" />
     <Content Include="Site.Master" />
     <None Include="packages.config" />
@@ -139,6 +140,13 @@
     </Compile>
     <Compile Include="LinkPaymentCreate.aspx.designer.cs">
       <DependentUpon>LinkPaymentCreate.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LinkPaymentDelete.aspx.cs">
+      <DependentUpon>LinkPaymentDelete.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LinkPaymentDelete.aspx.designer.cs">
+      <DependentUpon>LinkPaymentDelete.aspx</DependentUpon>
     </Compile>
     <Compile Include="LinkPaymentList.aspx.cs">
       <DependentUpon>LinkPaymentList.aspx</DependentUpon>
