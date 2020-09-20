@@ -27,7 +27,7 @@
 
                 <img src="Content/iPara_disi-01.png" width="100" height="100" />
                 <ul class="nav navbar-nav">
-                    <li><a href="Default.aspx">3d Ödeme</a></li>
+                    <li><a href="default.aspx">3d Ödeme</a></li>
                     <li><a href="ApiPayment.aspx">(Non-3d) Ödeme</a></li>
                     <li><a href="PaymentInquiry.aspx">Ödeme Sorgulama</a></li>
                     <li><a href="BinInquiry.aspx">Bin Sorgulama</a></li>

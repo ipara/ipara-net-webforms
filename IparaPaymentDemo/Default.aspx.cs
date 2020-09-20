@@ -4,94 +4,32 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using IparaPayment;
 using IparaPayment.Payment.Ipara;
 using IparaPayment.Payment.Ipara.Entity;
+using IparaPayment.Request;
 
 namespace IparaPaymentDemo
 {
     public partial class Default : System.Web.UI.Page
     {
-        private string publicKey = Settings.PublicKey;
-        private string privateKey = Settings.PrivateKey;
-        private string mode = Settings.Mode;
-        private string vendorId = Settings.VendorId;
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
+                nameSurname.Value = "Kart Sahibi Ad Soyad";
+                cardNumber.Value = "5456165456165454";
+                month.Value = "12";
+                year.Value = "24";
+                cvc.Value = "000";
 
-                
-                #region Kart bilgileri
-
-                lblOrderId.Text = Guid.NewGuid().ToString();
-                tbCardOwnerName.Text = "Murat Kaya";
-                tbCardNumber.Text = "5456165456165454";
-                tbCardExpireMonth.Text = "12";
-                tbCardExpireYear.Text = "24";
-                tbInstallment.Text = "1";
-                tbCvc.Text = "000";
-
-                #endregion
-
-                #region Sipariş veren bilgileri
-
-                tbPurchaserName.Text = "Murat";
-                tbPurchaserSurName.Text = "Kaya";
-                tbPurchaserBirthDate.Text = "1986-07-11";
-                tbPurchaserEmail.Text = "murat@kaya.com";
-                tbPurchaserGsmPhone.Text = "5881231212";
-                tbPurchaserIdentityNumber.Text = "1234567890";
-
-                #endregion
-
-                #region Fatura bilgileri
-
-                tbInvoiceName.Text = "Murat";
-                tbInvoiceSurName.Text = "Kaya";
-                tbInvoiceAddress.Text = "Mevlüt Pehlivan Mah. Multinet Plaza Şişli";
-                tbInvoiceZipCode.Text = "34782";
-                tbInvoiceCityCode.Text = "34";
-                tbInvoiceIdentityNumber.Text = "1234567890";
-                lblInvoiceCountryCode.Text = "TR";
-                tbInvoiceTaxNumber.Text = "123456";
-                tbInvoiceTaxOffice.Text = "Kozyatağı";
-                tbInvoiceCompanyName.Text = "iPara";
-                tbInvoicePhone.Text = "2123886600";
-
-                #endregion
-
-                #region Shipping bilgileri
-
-                tbShippingName.Text = "Murat";
-                tbShippingSurName.Text = "Kaya";
-                tbShippingAddress.Text = "Mevlüt Pehlivan Mah. Multinet Plaza Şişli";
-                tbShippingZipCode.Text = "34782";
-                tbShippingCityCode.Text = "34";
-                lblShippingCountryCode.Text = "TR";
-                tbShippingPhone.Text = "2123886600";
-
-                #endregion
-
-                #region Ürün bilgileri
-
-                tbProductTitle1.Text = "Product Name 1";
-                tbProductCode1.Text = "Product Name 1";
-                tbProductPrice1.Text = "10";
-                tbProductQuatity1.Text = "1";
-
-                tbProductTitle2.Text = "Product Name 2";
-                tbProductCode2.Text = "Product Name 2";
-
-                tbProductPrice2.Text = "10.25";
-                tbProductQuatity2.Text = "1";
-
-                #endregion
-            }
+            } 
         }
 
-        private IparaAuth LoadPayment()
+        /*private IparaAuth LoadPayment()
         {
+            
             IparaAuth auth = new IparaAuth();
 
             #region Kart bilgileri
@@ -185,10 +123,12 @@ namespace IparaPaymentDemo
             #endregion
 
             return auth;
-        }
+           
+        }*/
 
         protected void btnPay_Click(object sender, EventArgs e)
         {
+            /*
             IparaRequest request = new IparaRequest(publicKey, privateKey);
             IparaAuth auth = LoadPayment();
 
@@ -210,11 +150,12 @@ namespace IparaPaymentDemo
             {
                 lblMessage.Text = "ÖDEME İŞLEMİNİZ BAŞARISIZ. Error: " + ex.Message;
             }
+            */
         }
 
         protected void btnThreeD_Click(object sender, EventArgs e)
         {
-
+            /*
             IparaRequest request = new IparaRequest(publicKey, privateKey);
             IparaAuth auth = LoadPayment();
 
@@ -229,6 +170,41 @@ namespace IparaPaymentDemo
             {
                 lblMessage.Text = "ÖDEME İŞLEMİNİZ BAŞARISIZ. Error: " + ex.Message;
             }
+            */
+        }
+
+        protected void BtnPay3D_Click(object sender, EventArgs e)
+        {
+            //3d iki aşamalı bir işlemdir. İlk adımda 3D güvenlik sorgulaması yapılmalıdır. 
+            IparaPayment.Settings settings = new IparaPayment.Settings();
+            var request = new ThreeDPaymentInitRequest();
+            request.OrderId = Guid.NewGuid().ToString();
+            request.Echo = "Echo";
+            request.Mode = settings.Mode;
+            request.Version = settings.Version;
+            request.Amount = "10000"; // 100 tL
+            request.CardOwnerName = nameSurname.Value;
+            request.CardNumber = cardNumber.Value;
+            request.CardExpireMonth = month.Value;
+            request.CardExpireYear = year.Value;
+            request.Installment = installment.Value;
+            request.Cvc = cvc.Value;
+            request.CardId = "";
+            request.UserId = "";
+
+
+            request.PurchaserName = "Murat";
+            request.PurchaserSurname = "Kaya";
+            request.PurchaserEmail = "murat@kaya.com";
+
+            string successUrl = 
+            request.SuccessUrl = Request.Url.Scheme + "://" + Request.Url.Authority + "/ThreeDResult.aspx"; // "http://www.magazaniz.com/demo.aspx?type=response&three_d_response=success";
+            request.FailUrl = Request.Url.Scheme + "://" + Request.Url.Authority + "/ThreeDResult.aspx";  //"http://www.magazaniz.com/demo.aspx?type=response&three_d_response=failure";
+
+            var form = ThreeDPaymentInitRequest.Execute(request, settings);
+            System.Web.HttpContext.Current.Response.Clear();
+            System.Web.HttpContext.Current.Response.Write(form);
+            System.Web.HttpContext.Current.Response.End();
         }
     }
 }

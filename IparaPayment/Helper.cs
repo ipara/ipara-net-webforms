@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Security.Cryptography;
 using System.Net;
+using IparaPayment.Response;
 
 namespace IparaPayment
 {
@@ -86,7 +87,7 @@ namespace IparaPayment
             return headers;
         }
 
-        /*
+        
         /// <summary>
         /// 3D akışının ilk adımında yapılan işlemin ardından gelen cevabın doğrulanması adına kullanılacak
         /// fonksiyondur. 
@@ -106,6 +107,6 @@ namespace IparaPayment
                 throw new Exception("Ödeme cevabı hash doğrulaması hatalı. [result : " + paymentResponse.Result + ",error_code : " + paymentResponse.ErrorCode + ",error_message : " + paymentResponse.ErrorMessage + "]");
 
             return true;
-        } */
+        }
     }
 }

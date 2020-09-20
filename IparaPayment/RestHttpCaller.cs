@@ -77,6 +77,8 @@ namespace IparaPayment
                 httpClient.DefaultRequestHeaders.Add(key, headers.Get(key));
             }
             var xml = XmlBuilder.SerializeToXMLString(request);
+            ServicePointManager.Expect100Continue = true;
+            ServicePointManager.SecurityProtocol = SecurityProtocolType.Tls12;
             HttpResponseMessage httpResponseMessage = httpClient.PostAsync(url, xml).Result;
             var a = httpResponseMessage.Content.ReadAsStringAsync().Result;
             return XmlBuilder.DeserializeObject<T>(a);

@@ -68,6 +68,8 @@
     <Compile Include="Request\LinkPaymentCreateRequest.cs" />
     <Compile Include="Request\LinkPaymentDeleteRequest.cs" />
     <Compile Include="Request\LinkPaymentListRequest.cs" />
+    <Compile Include="Request\ThreeDPaymentCompleteRequest.cs" />
+    <Compile Include="Request\ThreeDPaymentInitRequest.cs" />
     <Compile Include="Response\BankCardCreateResponse.cs" />
     <Compile Include="Response\BankCardDeleteResponse.cs" />
     <Compile Include="Response\BankCardInquryResponse.cs" />
@@ -75,6 +77,8 @@
     <Compile Include="Response\LinkPaymentCreateResponse.cs" />
     <Compile Include="Response\LinkPaymentDeleteResponse.cs" />
     <Compile Include="Response\LinkPaymentListResponse.cs" />
+    <Compile Include="Response\ThreeDPaymentCompleteResponse.cs" />
+    <Compile Include="Response\ThreeDPaymentInitResponse.cs" />
     <Compile Include="RestHttpCaller.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="XmlBuilder.cs" />
