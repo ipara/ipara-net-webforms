@@ -4,7 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Xml.Serialization;
 
-namespace IparaPayment.Payment.Ipara.Entity
+namespace IparaPayment.Entity
 {
     /// <summary>
     /// Bu sınıf 3D secure olmadan ödeme kısmında ürün bilgisinin kullanılacağı yerde ve

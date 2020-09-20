@@ -51,15 +51,13 @@
     <Compile Include="Entity\PaymentLink.cs" />
     <Compile Include="Helper.cs" />
     <Compile Include="JsonBuilder.cs" />
-    <Compile Include="Payment\Ipara\IparaRequestUtil.cs" />
-    <Compile Include="Payment\Ipara\Entity\PurchaserAddress.cs" />
-    <Compile Include="Payment\Ipara\Entity\IparaAuth.cs" />
-    <Compile Include="Payment\Ipara\Entity\Product.cs" />
-    <Compile Include="Payment\Ipara\Entity\Purchaser.cs" />
-    <Compile Include="Payment\Ipara\IparaRequest.cs" />
-    <Compile Include="Payment\Ipara\Entity\PaymetResponse.cs" />
-    <Compile Include="Payment\Ipara\Settings.cs" />
+    <Compile Include="Entity\PurchaserAddress.cs" />
+    <Compile Include="Entity\IparaAuth.cs" />
+    <Compile Include="Entity\Product.cs" />
+    <Compile Include="Entity\Purchaser.cs" />
+    <Compile Include="Entity\PaymetResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Request\ApiPaymentRequest.cs" />
     <Compile Include="Request\BankCardCreateRequest.cs" />
     <Compile Include="Request\BankCardDeleteRequest.cs" />
     <Compile Include="Request\BankCardInquiryRequest.cs" />
@@ -68,8 +66,10 @@
     <Compile Include="Request\LinkPaymentCreateRequest.cs" />
     <Compile Include="Request\LinkPaymentDeleteRequest.cs" />
     <Compile Include="Request\LinkPaymentListRequest.cs" />
+    <Compile Include="Request\PaymentInquiryRequest.cs" />
     <Compile Include="Request\ThreeDPaymentCompleteRequest.cs" />
     <Compile Include="Request\ThreeDPaymentInitRequest.cs" />
+    <Compile Include="Response\ApiPaymentResponse.cs" />
     <Compile Include="Response\BankCardCreateResponse.cs" />
     <Compile Include="Response\BankCardDeleteResponse.cs" />
     <Compile Include="Response\BankCardInquryResponse.cs" />
@@ -77,6 +77,7 @@
     <Compile Include="Response\LinkPaymentCreateResponse.cs" />
     <Compile Include="Response\LinkPaymentDeleteResponse.cs" />
     <Compile Include="Response\LinkPaymentListResponse.cs" />
+    <Compile Include="Response\PaymentInquiryResponse.cs" />
     <Compile Include="Response\ThreeDPaymentCompleteResponse.cs" />
     <Compile Include="Response\ThreeDPaymentInitResponse.cs" />
     <Compile Include="RestHttpCaller.cs" />
@@ -86,6 +87,7 @@
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

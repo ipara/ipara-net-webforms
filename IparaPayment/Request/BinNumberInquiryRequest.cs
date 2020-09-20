@@ -1,5 +1,4 @@
-﻿using IparaPayment.Payment.Ipara;
-using IparaPayment.Response;
+﻿using IparaPayment.Response;
 using System;
 using System.Collections.Generic;
 using System.Linq;

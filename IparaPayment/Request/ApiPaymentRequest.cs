@@ -10,11 +10,12 @@ using System.Xml.Serialization;
 namespace IparaPayment.Request
 {
     /// <summary>
-    /// 3D Secure ile ödeme 2. Adımında gerekli olan 3D servis girdi parametrelerini temsil eder.
+    /// 3D Secure Olmadan Ödeme için gerekli olan servis girdi parametrelerini temsil eder.
     /// </summary>
     [XmlRoot("auth")]
-    public class ThreeDPaymentCompleteRequest : BaseRequest
+    public class ApiPaymentRequest : BaseRequest
     {
+
         [XmlElement("threeD")]
         public string ThreeD { get; set; }
 
@@ -59,18 +60,17 @@ namespace IparaPayment.Request
 
         [XmlElement("purchaser")]
         public Purchaser Purchaser { get; set; }
-
         /// <summary>
-        /// 3D Secure 2. Adımında ödeme onayı sağlanarak tahsilat gerçekleştirilmesi için gerekli olan servis isteğini temsil eder.
+        /// 3D Secure Olmadan Ödeme Servis çağrısını temsil eder.
         /// </summary>
-        /// <param name="request">Ödeme Onayı sağlamak için gerekli olan girdilerin olduğu sınıfı temsil eder.</param>
+        /// <param name="request">3D Secure olmadan gerekli olan servis girdi parametrelerini temsil eder.</param>
         /// <param name="options">Kullanıcıya özel olarak belirlenen ayarları temsil eder.</param>
         /// <returns></returns>
-        public static ThreeDPaymentCompleteResponse Execute(ThreeDPaymentCompleteRequest request, Settings options)
+        public static ApiPaymentResponse Execute(ApiPaymentRequest request, Settings options)
         {
             options.TransactionDate = Helper.GetTransactionDateString();
-            options.HashString = options.PrivateKey + request.OrderId + request.Amount + request.Mode + request.ThreeDSecureCode + options.TransactionDate;
-            return RestHttpCaller.Create().PostXML<ThreeDPaymentCompleteResponse>(options.BaseUrl + "rest/payment/auth", Helper.GetHttpHeaders(options, Helper.application_xml), request);
+            options.HashString = options.PrivateKey + request.OrderId + request.Amount + request.Mode + request.CardOwnerName + request.CardNumber + request.CardExpireMonth + request.CardExpireYear + request.Cvc + request.UserId + request.CardId + request.Purchaser.Name + request.Purchaser.SurName + request.Purchaser.Email + options.TransactionDate;
+            return RestHttpCaller.Create().PostXML<ApiPaymentResponse>(options.BaseUrl + "rest/payment/auth", Helper.GetHttpHeaders(options, Helper.application_xml), request);
         }
     }
 }

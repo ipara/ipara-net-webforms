@@ -1,5 +1,5 @@
 ﻿using IparaPayment;
-using IparaPayment.Payment.Ipara.Entity;
+using IparaPayment.Entity;
 using IparaPayment.Request;
 using IparaPayment.Response;
 using Newtonsoft.Json;
