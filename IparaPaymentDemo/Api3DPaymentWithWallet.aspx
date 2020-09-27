@@ -1,4 +1,4 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="ApiPaymentWithWallet.aspx.cs" Inherits="IparaPaymentDemo.ApiPaymentWithWallet" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Api3DPaymentWithWallet.aspx.cs" Inherits="IparaPaymentDemo.Api3DPaymentWithWallet" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="SiteContent" runat="server">
@@ -67,8 +67,8 @@
 		style="font-weight: bold;">Vergi Dairesi Adı :</label> Kozyatağı<br> <label
 		style="font-weight: bold;">Firma Adı:</label> iPara
 </fieldset>
-
 <form action="" method="post" class="form-horizontal">
+
 
 	<fieldset>
 		<legend>
@@ -77,16 +77,14 @@
 		<div class="form-group">
 			<label class="col-md-4 control-label" for="">Kullanıcı Id:</label>
 			<div class="col-md-4">
-				<input id="userId" type="text" 
-					class="form-control input-md" runat="server">
+				<input id="userId" type="text" class="form-control input-md" runat="server">
 
 			</div>
 		</div>
 		<div class="form-group">
 			<label class="col-md-4 control-label" for="">Kart Id:</label>
 			<div class="col-md-4">
-				<input id="cardId" type="text" 
-					class="form-control input-md" runat="server">
+				<input id="cardId" type="text" class="form-control input-md" runat="server">
 
 			</div>
 		</div>
@@ -109,14 +107,13 @@
 	</select>
 
 	<!-- Button -->
-		<div class="form-group">
-			<label class="col-md-4 control-label" for=""></label>
-			<div class="col-md-4">
-				<asp:Button ID="BtnApiPaymentWithWallet" runat="server" Text="API Payment ile Ödeme" class="btn btn-success" OnClick="BtnApiPaymentWithWallet_Click" />
-			</div>
+	<div class="form-group">
+		<label class="col-md-4 control-label" for=""></label>
+		<div class="col-md-4">
+			<asp:Button ID="BtnApi3DPaymentWithWallet" runat="server" Text="API 3D Payment ile Ödeme" class="btn btn-success" OnClick="BtnApi3DPaymentWithWallet_Click" />
 		</div>
+	</div>
+	    
 </form>
-
 	<div id="result" runat="server"></div>
-
 </asp:Content>
