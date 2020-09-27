@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 
 namespace IparaPayment.Response
 {
+    /// <summary>
+    /// Linkle Ödeme -> Link Sorgulama/Listeleme Servisi çıktı parametre alanları temsil eder.
+    /// </summary>
     public class LinkPaymentListResponse : BaseResponse
     {
      public List<PaymentLink> linkPaymentRecordList { get; set; }

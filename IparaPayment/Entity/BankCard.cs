@@ -5,8 +5,10 @@ using System.Text;
 
 namespace IparaPayment.Entity
 {
+    /// <summary>
     /// Bu sınıf cüzdana kart ekleme servisi isteği sonucunda ve cüzdandaki kartları getir isteği sonucunda bize döndürülen 
     /// alanları temsil etmektedir. 
+    /// </summary> 
     public class BankCard
     {
         public string cardId { get; set; }

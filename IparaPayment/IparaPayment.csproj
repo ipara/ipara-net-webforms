@@ -55,13 +55,12 @@
     <Compile Include="Entity\IparaAuth.cs" />
     <Compile Include="Entity\Product.cs" />
     <Compile Include="Entity\Purchaser.cs" />
-    <Compile Include="Entity\PaymetResponse.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Request\ApiPaymentRequest.cs" />
     <Compile Include="Request\BankCardCreateRequest.cs" />
     <Compile Include="Request\BankCardDeleteRequest.cs" />
     <Compile Include="Request\BankCardInquiryRequest.cs" />
-    <Compile Include="Request\Base.cs" />
+    <Compile Include="Base.cs" />
     <Compile Include="Request\BinNumberInquiryRequest.cs" />
     <Compile Include="Request\LinkPaymentCreateRequest.cs" />
     <Compile Include="Request\LinkPaymentDeleteRequest.cs" />

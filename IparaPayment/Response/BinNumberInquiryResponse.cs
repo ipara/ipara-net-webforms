@@ -7,7 +7,9 @@ using System.Text;
 
 namespace IparaPayment.Response
 {
+    /// <summary>
     /// Bin Sorgulama servisi sonucunda oluşan servis çıktı parametre alanlarını temsil etmektedir. 
+    /// </summary>
     public class BinNumberInquiryResponse : BaseResponse
     {
 

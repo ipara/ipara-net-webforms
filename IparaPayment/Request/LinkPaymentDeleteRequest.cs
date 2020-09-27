@@ -8,15 +8,18 @@ using System.Threading.Tasks;
 
 namespace IparaPayment.Request
 {
+    /// <summary>
+    /// Linkle Ödeme -> Link Silme Servisi içerisinde kullanılacak alanları temsil eder.
+    /// </summary>
     public class LinkPaymentDeleteRequest : BaseRequest
     {
         public string linkId { get; set; }
         public string clientIp { get; set; }
-        public static BaseResponse Execute(LinkPaymentDeleteRequest request, Settings options)
+        public static LinkPaymentDeleteResponse Execute(LinkPaymentDeleteRequest request, Settings options)
         {
             options.TransactionDate = Helper.GetTransactionDateString();
             options.HashString = options.PrivateKey + request.clientIp + options.TransactionDate;
-            BaseResponse response = RestHttpCaller.Create().PostJson<BaseResponse>(options.BaseUrl + "corporate/merchant/linkpayment/delete", Helper.GetHttpHeaders(options, Helper.application_json), request);
+            LinkPaymentDeleteResponse response = RestHttpCaller.Create().PostJson<LinkPaymentDeleteResponse>(options.BaseUrl + "corporate/merchant/linkpayment/delete", Helper.GetHttpHeaders(options, Helper.application_json), request);
             return response;
         }
     }

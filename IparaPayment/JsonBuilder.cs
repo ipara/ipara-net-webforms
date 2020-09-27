@@ -6,8 +6,10 @@ using System.Text;
 
 namespace IparaPayment
 {
+    /// <summary>
     /// Istekleri JSON olarak oluşturucak sınıftır. 
     /// JSON olarak istenen  istekleri json olarak oluşturmamıza olanak sağlar.
+    /// </summary> 
     public class JsonBuilder
     {
         public static string SerializeToJsonString(BaseRequest request)

@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace IparaPayment.Request
 {
+    /// <summary>
+    /// Linkle Ödeme -> Link Gönderimi Servisi içerisinde kullanılacak alanları temsil eder.
+    /// </summary>
     public class LinkPaymentCreateRequest : BaseRequest
     {
         public string name { get; set; }

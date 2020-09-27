@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Xml.Serialization;
 
-namespace IparaPayment.Request
+namespace IparaPayment
 {
     /// Tüm Request Sınıflarındaki Ortak Alanlar
     /// Tüm Request Sınıflarında zorunlu olarak kullanılacak alanları temsil eder.

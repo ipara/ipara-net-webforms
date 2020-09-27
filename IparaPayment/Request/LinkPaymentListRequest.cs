@@ -8,6 +8,10 @@ using System.Threading.Tasks;
 
 namespace IparaPayment.Request
 {
+    /// <summary>
+    /// Linkle Ödeme -> Link Sorgulama/Listeleme Servisi içerisinde kullanılacak alanları temsil eder.
+    /// </summary>
+
     public class LinkPaymentListRequest : BaseRequest
     {
         public string email { get; set; }
