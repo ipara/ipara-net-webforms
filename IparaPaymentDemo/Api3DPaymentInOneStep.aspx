@@ -1,8 +1,7 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Default.aspx.cs" Inherits="IparaPaymentDemo.Default" %>
+﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Api3DPaymentInOneStep.aspx.cs" Inherits="IparaPaymentDemo.Api3DPaymentWithOneStep" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="SiteContent" runat="server">
-
     <fieldset>
 	<legend>
 		<label style="font-weight: bold; width: 250px;">Sepet Bilgileri</label>
@@ -134,9 +133,10 @@
 	<div class="form-group">
 		<label class="col-md-4 control-label" for=""></label>
 		<div class="col-md-4">
-			<asp:Button ID="BtnPay3D" runat="server" Text="3D ile Ödeme" class="btn btn-success" OnClick="BtnPay3D_Click" />
+			<asp:Button ID="BtnApi3DPaymentInOneStep" runat="server" Text="3D ile Tek Adımda Ödeme" class="btn btn-success" OnClick="BtnApi3DPaymentInOneStep_Click" />
 		</div>
 	</div>
-</form>
 
+	<div id="result" runat="server"></div>
+</form>
 </asp:Content>

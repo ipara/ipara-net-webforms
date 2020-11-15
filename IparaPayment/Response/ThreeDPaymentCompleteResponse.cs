@@ -1,4 +1,5 @@
 ﻿using IparaPayment.Request;
+using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,8 +15,11 @@ namespace IparaPayment.Response
     [XmlRoot("authResponse")]
     public class ThreeDPaymentCompleteResponse : BaseResponse
     {
+        [JsonProperty("amount")]
         [XmlElement("amount")]
         public string Amount { get; set; }
+
+        [JsonProperty("orderId")]
         [XmlElement("orderId")]
         public string OrderId { get; set; }
     }

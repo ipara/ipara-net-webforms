@@ -39,7 +39,7 @@
                     <li><a href="LinkPaymentCreate.aspx">Link İle Ödeme (Link Gönderim)</a></li>
                     <li><a href="LinkPaymentList.aspx">Link İle Ödeme (Link Sorgulama)</a></li>
                     <li><a href="LinkPaymentDelete.aspx">Link İle Ödeme (Link Silme)</a></li>
-                    <li><a href="Api3DPayment.aspx">Tek Adımda 3D Ödeme</a></li>
+                    <li><a href="Api3DPaymentInOneStep.aspx">Tek Adımda 3D Ödeme</a></li>
               
                 </ul>
             </div>

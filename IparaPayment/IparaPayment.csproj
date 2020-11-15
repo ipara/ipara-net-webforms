@@ -68,6 +68,7 @@
     <Compile Include="Request\PaymentInquiryRequest.cs" />
     <Compile Include="Request\ThreeDPaymentCompleteRequest.cs" />
     <Compile Include="Request\ThreeDPaymentInitRequest.cs" />
+    <Compile Include="Request\ThreeDPaymentInOneStepRequest.cs" />
     <Compile Include="Response\ApiPaymentResponse.cs" />
     <Compile Include="Response\BankCardCreateResponse.cs" />
     <Compile Include="Response\BankCardDeleteResponse.cs" />
