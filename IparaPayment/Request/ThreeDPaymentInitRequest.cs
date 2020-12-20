@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -40,6 +41,7 @@ namespace IparaPayment.Request
         [XmlElement("installment")]
         public string Installment { get; set; }
 
+        [JsonProperty("cardCvc")]
         [XmlElement("cardCvc")]
         public string Cvc { get; set; }
 
@@ -55,6 +57,7 @@ namespace IparaPayment.Request
         [XmlElement("successUrl")]
         public string SuccessUrl { get; set; }
 
+        [JsonProperty("failureUrl")]
         [XmlElement("failUrl")]
         public string FailUrl { get; set; }
 

@@ -83,6 +83,7 @@
     <Content Include="LinkPaymentList.aspx" />
     <Content Include="PaymentInquiry.aspx" />
     <Content Include="Site.Master" />
+    <Content Include="OneClickThreeDResult.aspx" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -201,6 +202,13 @@
     </Compile>
     <Compile Include="ThreeDResult.aspx.designer.cs">
       <DependentUpon>ThreeDResult.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="OneClickThreeDResult.aspx.cs">
+      <DependentUpon>OneClickThreeDResult.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="OneClickThreeDResult.aspx.designer.cs">
+      <DependentUpon>OneClickThreeDResult.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
