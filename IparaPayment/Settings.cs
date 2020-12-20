@@ -14,8 +14,8 @@ namespace IparaPayment
     public class Settings
     {
 
-        public string PublicKey { get { return "WY48CP014UFLQ4A"; } }           //"Public Magaza Anahtarı - size mağaza başvurunuz sonucunda gönderilen public key (açık anahtar) bilgisini kullanınız.",
-        public string PrivateKey { get { return "WY48CP014UFLQ4A0VSW12US00"; } }          //"Private Magaza Anahtarı  - size mağaza başvurunuz sonucunda gönderilen privaye key (gizli anahtar) bilgisini kullanınız.",
+        public string PublicKey { get { return ""; } }           //"Public Magaza Anahtarı - size mağaza başvurunuz sonucunda gönderilen public key (açık anahtar) bilgisini kullanınız.",
+        public string PrivateKey { get { return ""; } }          //"Private Magaza Anahtarı  - size mağaza başvurunuz sonucunda gönderilen privaye key (gizli anahtar) bilgisini kullanınız.",
         public string BaseUrl { get { return "https://api.ipara.com/";  } }             //iPara web servisleri API url'lerinin başlangıç bilgisidir.
         public string ThreeDInquiryUrl { get { return "https://www.ipara.com/3dgate"; } }    //iPara 3D operasyonu için güvenlik sorgusu servisinin URL bilgisi.
         public string Mode { get { return "T"; } }                // Test -> T, entegrasyon testlerinin sırasında "T" modunu, canlı sisteme entegre olarak ödeme almaya başlamak için ise Prod -> "P" modunu kullanınız.

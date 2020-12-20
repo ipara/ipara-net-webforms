@@ -13,7 +13,9 @@ namespace IparaPayment.Request
     public class BankCardCreateRequest : BaseRequest
     {
         public string userId { get; set; }
+        
         public string cardOwnerName { get; set; }
+        
         public string cardNumber { get; set; }
 
         public string cardAlias { get; set; }

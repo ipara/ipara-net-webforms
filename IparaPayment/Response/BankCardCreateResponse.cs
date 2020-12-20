@@ -25,12 +25,15 @@ namespace IparaPayment.Response
         public string cardFamilyName { get; set; }
 
         public string supportsInstallment { get; set; }
+        
         public List<string> supportedInstallments { get; set; }
+        
         public string type { get; set; }
 
         public string serviceProvider { get; set; }
 
         public string threeDSecureMandatory { get; set; }
+       
         public string cvcMandatory { get; set; }
     }
 }

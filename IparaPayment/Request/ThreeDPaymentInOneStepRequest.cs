@@ -10,6 +10,9 @@ using System.Threading.Tasks;
 
 namespace IparaPayment.Request
 {
+    /// <summary>
+    /// Tek Adımda 3D Ödeme yapabilmek için gerekli olan servis girdi parametrelerini oluşturur.
+    /// </summary>
     public class ThreeDPaymentInOneStepRequest : ThreeDPaymentInitRequest
     {
         [JsonProperty("language")]

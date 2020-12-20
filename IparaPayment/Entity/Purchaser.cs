@@ -38,11 +38,8 @@ namespace IparaPayment.Entity
 
         [XmlElement("invoiceAddress")]
         public PurchaserAddress InvoiceAddress { get; set; }
-
         
         [XmlElement("shippingAddress")]
         public PurchaserAddress ShippingAddress { get; set; }
-
-
     }
 }

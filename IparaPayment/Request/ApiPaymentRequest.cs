@@ -44,7 +44,6 @@ namespace IparaPayment.Request
         [XmlElement("cardCvc")]
         public string Cvc { get; set; }
 
-
         [XmlElement("vendorId")]
         public string VendorId { get; set; }
         [XmlElement("userId")]

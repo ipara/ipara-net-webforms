@@ -24,7 +24,6 @@ namespace IparaPayment.Request
         [XmlElement("amount")]
         public string Amount { get; set; }
 
-
         [XmlElement("cardOwnerName")]
         public string CardOwnerName { get; set; }
 
@@ -42,7 +41,6 @@ namespace IparaPayment.Request
 
         [XmlElement("cardCvc")]
         public string Cvc { get; set; }
-
 
         [XmlElement("vendorId")]
         public string VendorId { get; set; }
