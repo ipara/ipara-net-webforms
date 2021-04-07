@@ -11,17 +11,26 @@ namespace IparaPaymentDemo
 {
 
 
-    public partial class ThreeDResult1
+    public partial class PaymentInquiry
     {
 
         /// <summary>
-        /// lblMessage control.
+        /// orderId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMessage;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText orderId;
+
+        /// <summary>
+        /// BtnInquiry control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnInquiry;
 
         /// <summary>
         /// result control.

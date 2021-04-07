@@ -11,17 +11,35 @@ namespace IparaPaymentDemo
 {
 
 
-    public partial class ThreeDResult1
+    public partial class GetCardFromWallet
     {
 
         /// <summary>
-        /// lblMessage control.
+        /// userId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMessage;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText userId;
+
+        /// <summary>
+        /// cardId control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText cardId;
+
+        /// <summary>
+        /// BtnGetCards control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnGetCards;
 
         /// <summary>
         /// result control.

@@ -8,3 +8,4 @@
 .vs
 */config
 .vs/config/applicationhost.config
+IparaPaymentDemo/*.user

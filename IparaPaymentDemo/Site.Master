@@ -1,0 +1,66 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.Master.cs" Inherits="IparaPaymentDemo.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+
+    <head>
+        <title>iPara Developer Portal</title>
+        <link href="Content/bootstrap.css" rel="stylesheet" />
+        <link href="Content/Site.css" rel="stylesheet" />
+        <asp:ContentPlaceHolder ID="head" runat="server">
+        </asp:ContentPlaceHolder>
+    </head>
+
+    <body>
+     
+          <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div class="navbar-collapse collapse">
+
+                <img src="Content/iPara_disi-01.png" width="100" height="100" />
+                <ul class="nav navbar-nav">
+                    <li><a href="default.aspx">3d Ödeme</a></li>
+                    <li><a href="ApiPayment.aspx">(Non-3d) Ödeme</a></li>
+                    <li><a href="PaymentInquiry.aspx">Ödeme Sorgulama</a></li>
+                    <li><a href="BinInquiry.aspx">Bin Sorgulama</a></li>
+                    <li><a href="AddCardToWallet.aspx">Cüzdana Kart Ekle </a></li>
+                    <li><a href="GetCardFromWallet.aspx">Cüzdandaki Kartları Listele</a></li>
+                    <li><a href="DeleteCardFromWallet.aspx">Cüzdandan Kart Sil</a></li>
+                    <li><a href="ApiPaymentWithWallet.aspx">Cüzdandaki Kart Tek Tıkla Ödeme</a></li>
+                    <li><a href="Api3DPaymentWithWallet.aspx">Cüzdandaki Kart Tek Tıkla 3D Ödeme</a></li>
+                    <li><a href="LinkPaymentCreate.aspx">Link İle Ödeme (Link Gönderim)</a></li>
+                    <li><a href="LinkPaymentList.aspx">Link İle Ödeme (Link Sorgulama)</a></li>
+                    <li><a href="LinkPaymentDelete.aspx">Link İle Ödeme (Link Silme)</a></li>
+                    <li><a href="Api3DPaymentInOneStep.aspx">Tek Adımda 3D Ödeme</a></li>
+              
+                </ul>
+            </div>
+        </div>
+    </div>
+<div class="container body-content" >
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <form id="form1" runat="server" class="form-horizontal" method="post">
+        <asp:ContentPlaceHolder ID="SiteContent" runat="server">
+
+        </asp:ContentPlaceHolder>
+    </form>
+</div>
+
+</body>
+</html>
+
+
+
+

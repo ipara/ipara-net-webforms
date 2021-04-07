@@ -11,17 +11,26 @@ namespace IparaPaymentDemo
 {
 
 
-    public partial class ThreeDResult1
+    public partial class LinkPaymentDelete
     {
 
         /// <summary>
-        /// lblMessage control.
+        /// linkId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblMessage;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText linkId;
+
+        /// <summary>
+        /// BtnDeleteLinkPayment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button BtnDeleteLinkPayment;
 
         /// <summary>
         /// result control.
