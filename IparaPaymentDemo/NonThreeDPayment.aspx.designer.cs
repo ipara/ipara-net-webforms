@@ -11,17 +11,17 @@ namespace IparaPaymentDemo
 {
 
 
-    public partial class ApiPayment
+    public partial class NonThreeDPayment
     {
 
         /// <summary>
-        /// nameSurname control.
+        /// cardOwnerName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText nameSurname;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText cardOwnerName;
 
         /// <summary>
         /// cardNumber control.
@@ -33,31 +33,40 @@ namespace IparaPaymentDemo
         protected global::System.Web.UI.HtmlControls.HtmlInputText cardNumber;
 
         /// <summary>
-        /// month control.
+        /// cardExpireMonth control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText month;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText cardExpireMonth;
 
         /// <summary>
-        /// year control.
+        /// cardExpireYear control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText year;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText cardExpireYear;
 
         /// <summary>
-        /// cvc control.
+        /// cardCvc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText cvc;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText cardCvc;
+
+        /// <summary>
+        /// amount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText amount;
 
         /// <summary>
         /// installment control.

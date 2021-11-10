@@ -1,8 +1,8 @@
-﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="Api3DPaymentWithWallet.aspx.cs" Inherits="IparaPaymentDemo.Api3DPaymentWithWallet" %>
+﻿<%@ Page EnableEventValidation="false" Title="" Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" CodeBehind="NonThreeDPaymentWithWallet.aspx.cs" Inherits="IparaPaymentDemo.NonThreeDPaymentWithWallet" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="SiteContent" runat="server">
-    <fieldset>
+   <fieldset>
 	<legend>
 		<label style="font-weight: bold; width: 250px;">Sepet Bilgileri</label>
 	</legend>
@@ -37,6 +37,7 @@
 		</tbody>
 	</table>
 </fieldset>
+<br />
 <fieldset>
 	<legend>
 		<label style="font-weight: bold; width: 250px;">Kargo Adresi Bilgileri</label>
@@ -50,6 +51,8 @@
 	<br> <label style="font-weight: bold;">Telefon Numarası:</label>
 	2123886600 <br>
 </fieldset>
+<br />
+<br />
 <fieldset>
 	<legend>
 		<label style="font-weight: bold; width: 250px;">Fatura Adresi
@@ -61,59 +64,63 @@
 	Multinet Plaza Şişli<br> <label style="font-weight: bold;">Posta Kodu :</label>
 	34782<br> <label style="font-weight: bold;">Şehir :</label> İstanbul<br>
 	<label style="font-weight: bold;">Ülke :</label> Türkiye<br> <label
-		style="font-weight: bold;">TC Kimlik Numarası :</label> 1234567890<br>
+		style="font-weight: bold;">TC Kimlik Numarası :</label> 12345678901<br>
 	<label style="font-weight: bold;">Telefon Numarası:</label> 2123886600<br>
 	<label style="font-weight: bold;">Vergi Numarası :</label> 123456<br> <label
 		style="font-weight: bold;">Vergi Dairesi Adı :</label> Kozyatağı<br> <label
 		style="font-weight: bold;">Firma Adı:</label> iPara
 </fieldset>
+<br />
+<br />
 <form action="" method="post" class="form-horizontal">
-
 
 	<fieldset>
 		<legend>
 			<label style="font-weight: bold; width: 250px;">Tek Tıkla Ödeme</label>
 		</legend>
 		<div class="form-group">
-			<label class="col-md-4 control-label" for="">Kullanıcı Id:</label>
+			<label class="col-md-4 control-label" for="">Kullanıcı Id (*):</label>
 			<div class="col-md-4">
-				<input id="userId" type="text" class="form-control input-md" runat="server">
-
+				<input id="userId" required="" type="text" class="form-control input-md" runat="server">
 			</div>
 		</div>
 		<div class="form-group">
-			<label class="col-md-4 control-label" for="">Kart Id:</label>
+			<label class="col-md-4 control-label" for="">Kart Id (*):</label>
 			<div class="col-md-4">
-				<input id="cardId" type="text" class="form-control input-md" runat="server">
-
+				<input id="cardId" type="text" required="" class="form-control input-md" runat="server">
 			</div>
 		</div>
-
+		<div class="form-group">
+            <label class="col-md-4 control-label" for="">Taksit (Opsiyonel):</label>
+            <div class="col-md-4">
+                <select class="form-control input-md" id="installment" runat="server">
+                    <option value="">Seçiniz</option>
+                    <option value="1">1</option>
+                    <option value="2">2</option>
+                    <option value="3">3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="6">6</option>
+                    <option value="7">7</option>
+                    <option value="8">8</option>
+                    <option value="9">9</option>
+                    <option value="10">10</option>
+                    <option value="11">11</option>
+                    <option value="12">12</option>
+                </select>
+            </div>
+        </div>
 	</fieldset>
 
-	Taksit Sayısı <select id="installment" runat="server">
-		<option value="1">1</option>
-		<option value="2">2</option>
-		<option value="3">3</option>
-		<option value="4">4</option>
-		<option value="5">5</option>
-		<option value="6">6</option>
-		<option value="7">7</option>
-		<option value="8">8</option>
-		<option value="9">9</option>
-		<option value="10">10</option>
-		<option value="11">11</option>
-		<option value="12">12</option>
-	</select>
-
 	<!-- Button -->
-	<div class="form-group">
-		<label class="col-md-4 control-label" for=""></label>
-		<div class="col-md-4">
-			<asp:Button ID="BtnApi3DPaymentWithWallet" runat="server" Text="API 3D Payment ile Ödeme" class="btn btn-success" OnClick="BtnApi3DPaymentWithWallet_Click" />
+		<div class="form-group">
+			<label class="col-md-4 control-label" for=""></label>
+			<div class="col-md-4">
+				<asp:Button ID="BtnApiPaymentWithWallet" runat="server" Text="(Non-3d) Ödeme" class="btn btn-success" OnClick="BtnApiPaymentWithWallet_Click" />
+			</div>
 		</div>
-	</div>
-	    
 </form>
+
 	<div id="result" runat="server"></div>
+
 </asp:Content>

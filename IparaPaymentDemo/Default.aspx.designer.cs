@@ -15,13 +15,13 @@ namespace IparaPaymentDemo
     {
 
         /// <summary>
-        /// nameSurname control.
+        /// cardOwnerName control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText nameSurname;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText cardOwnerName;
 
         /// <summary>
         /// cardNumber control.
@@ -33,31 +33,40 @@ namespace IparaPaymentDemo
         protected global::System.Web.UI.HtmlControls.HtmlInputText cardNumber;
 
         /// <summary>
-        /// month control.
+        /// cardExpireMonth control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText month;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText cardExpireMonth;
 
         /// <summary>
-        /// year control.
+        /// cardExpireYear control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText year;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText cardExpireYear;
 
         /// <summary>
-        /// cvc control.
+        /// cardCvc control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText cvc;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText cardCvc;
+
+        /// <summary>
+        /// amount control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlInputText amount;
 
         /// <summary>
         /// installment control.
@@ -69,12 +78,21 @@ namespace IparaPaymentDemo
         protected global::System.Web.UI.HtmlControls.HtmlSelect installment;
 
         /// <summary>
-        /// BtnPay3D control.
+        /// BtnApi3DPaymentInOneStep control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnPay3D;
+        protected global::System.Web.UI.WebControls.Button BtnApi3DPaymentInOneStep;
+
+        /// <summary>
+        /// result control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl result;
     }
 }

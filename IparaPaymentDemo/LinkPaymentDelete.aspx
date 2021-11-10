@@ -6,13 +6,12 @@
     <fieldset>
 
         <!-- Form Name -->
-        <legend>Link İle Ödeme (Link Silme)</legend>
+        <legend>Ödeme Linki Sil</legend>
 
         <div class="form-group">
-            <label class="col-md-4 control-label" for="">Ödeme Linki ID : </label>
+            <label class="col-md-4 control-label" for="">Link Id (**):</label>
             <div class="col-md-4">
-                <input value="" id="linkId"  class="form-control input-md" runat="server">
-
+                <input value="" id="linkId"  class="form-control input-md" runat="server" required="">
             </div>
         </div>
 
@@ -23,7 +22,7 @@
 				<asp:Button ID="BtnDeleteLinkPayment" runat="server" Text="Ödeme Linkini Sil" class="btn btn-success" OnClick="BtnDeleteLinkPayment_Click" />
 			</div>
 		</div>
-
+        <p>** Ödeme linki oluşturduğunuzda dönen "linkPaymentId" parametresidir.</p>
     </fieldset>
 
     <div id="result" runat="server"></div>

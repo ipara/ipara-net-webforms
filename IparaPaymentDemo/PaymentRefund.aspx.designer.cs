@@ -11,44 +11,44 @@ namespace IparaPaymentDemo
 {
 
 
-    public partial class ApiPaymentWithWallet
+    public partial class PaymentRefund
     {
 
         /// <summary>
-        /// userId control.
+        /// OrderId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText userId;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText OrderId;
 
         /// <summary>
-        /// cardId control.
+        /// Amount control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText cardId;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText Amount;
 
         /// <summary>
-        /// installment control.
+        /// RefundHash control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlSelect installment;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText RefundHash;
 
         /// <summary>
-        /// BtnApiPaymentWithWallet control.
+        /// BtnRefundInquiry control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnApiPaymentWithWallet;
+        protected global::System.Web.UI.WebControls.Button BtnRefundInquiry;
 
         /// <summary>
         /// result control.

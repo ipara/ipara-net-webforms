@@ -2,11 +2,6 @@
 using IparaPayment.Request;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace IparaPaymentDemo
 {
@@ -19,10 +14,10 @@ namespace IparaPaymentDemo
 
         protected void BtnDeleteLinkPayment_Click(object sender, EventArgs e)
         {
-            Settings settings = new Settings();
-            LinkPaymentDeleteRequest request = new LinkPaymentDeleteRequest();
-            request.linkId = linkId.Value;
-            request.clientIp = "127.0.0.1";
+            Settings settings = new();
+            LinkPaymentDeleteRequest request = new();
+            request.LinkId = linkId.Value;
+            request.ClientIp = "127.0.0.1";
 
             BaseResponse response = LinkPaymentDeleteRequest.Execute(request, settings);
             string jsonResponse = JsonConvert.SerializeObject(response, Formatting.Indented);

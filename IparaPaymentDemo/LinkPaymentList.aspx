@@ -5,22 +5,40 @@
     <fieldset>
 
         <!-- Form Name -->
-        <legend>Link İle Ödeme (Link Sorgulama)</legend>
+        <legend>Ödeme Linklerini Listele</legend>
 
         <div class="form-group">
-            <label class="col-md-4 control-label" for="">Müşteri Eposta : </label>
+            <label class="col-md-4 control-label" for="">Müşteri Email (Opsiyonel):</label>
             <div class="col-md-4">
                 <input id="email" class="form-control input-md" runat="server">
             </div>
         </div>
         <div class="form-group">
-            <label class="col-md-4 control-label" for="">Müşteri Cep Telefonu : </label>
+            <label class="col-md-4 control-label" for="">Müşteri Cep Telefonu (Opsiyonel):</label>
             <div class="col-md-4">
                 <input  id="gsm"  runat="server" class="form-control input-md">
             </div>
         </div>
         <div class="form-group">
-            <label class="col-md-4 control-label" for="">Link Durumu : </label>
+            <label class="col-md-4 control-label" for="">Başlangıç Tarihi (Opsiyonel) (**):</label>
+            <div class="col-md-4 form-inline">
+                <input runat="server" id="start_day" class="form-control input-md" style="width: 80px; text-align: center;" maxlength="2">
+                <input runat="server" id="start_month" class="form-control input-md" style="width: 80px; text-align: center;" maxlength="2">
+                <input runat="server" id="start_year" class="form-control input-md" style="width: 112px; text-align: center;" maxlength="4">
+
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="">Bitiş Tarihi (Opsiyonel) (**):</label>
+            <div class="col-md-4 form-inline">
+                <input runat="server" id="end_day" class="form-control input-md" style="width: 80px; text-align: center;" maxlength="2">
+                <input runat="server" id="end_month" class="form-control input-md" style="width: 80px; text-align: center;" maxlength="2">
+                <input runat="server" id="end_year" class="form-control input-md" style="width: 112px; text-align: center;" maxlength="4">
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="col-md-4 control-label" for="">Ödeme Durum Bilgisi (Opsiyonel):</label>
             <div class="col-md-4">
                 <select runat="server" id="linkState" class="form-control">
                     <option value="-1">Seçiniz</option>
@@ -34,38 +52,28 @@
             </div>
         </div>
         <div class="form-group">
-            <label class="col-md-4 control-label" for="">Link Oluşturma Alanına Ait Arama Başlangıç Tarihi * : </label>
-            <div class="col-md-4 form-inline">
-                <input runat="server" id="start_day" class="form-control input-md" style="width: 80px; text-align: center;" maxlength="2">
-                <input runat="server" id="start_month" class="form-control input-md" style="width: 80px; text-align: center;" maxlength="2">
-                <input runat="server" id="start_year" class="form-control input-md" style="width: 112px; text-align: center;" maxlength="4">
-
-            </div>
-        </div>
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="">Link Oluşturma Alanına Ait Arama Başlangıç Tarihi * : </label>
-            <div class="col-md-4 form-inline">
-                <input runat="server" id="end_day" class="form-control input-md" style="width: 80px; text-align: center;" maxlength="2">
-                <input runat="server" id="end_month" class="form-control input-md" style="width: 80px; text-align: center;" maxlength="2">
-                <input runat="server" id="end_year" class="form-control input-md" style="width: 112px; text-align: center;" maxlength="4">
-            </div>
-        </div>
-
-        <div class="form-group">
-            <label class="col-md-4 control-label" for="">Toplam Gösterilebilecek Sayfa Sayısı * : </label>
+            <label class="col-md-4 control-label" for="">Sayfa Sayısı (5-15) (*):</label>
             <div class="col-md-4">
                     <select runat="server" id="pageSize" class="form-control">
                         <option value="5">5</option>
                         <option value="6">6</option>
                         <option value="7">7</option>
+                        <option value="8">8</option>
+                        <option value="9">9</option>
+                        <option value="10">10</option>
+                        <option value="11">11</option>
+                        <option value="12">12</option>
+                        <option value="13">13</option>
+                        <option value="14">14</option>
+                        <option value="15">15</option>
                     </select>
             </div>
         </div>
 
         <div class="form-group">
-            <label class="col-md-4 control-label" for="">Gösterilecek Sayfa Numarası * : </label>
+            <label class="col-md-4 control-label" for="">Sayfa Index (*):</label>
             <div class="col-md-4">
-                <input runat="server" id="pageIndex"  class="form-control input-md" required="required">
+                <input runat="server" value="1" id="pageIndex"  class="form-control input-md" required="">
             </div>
         </div>
         <!-- Button -->
@@ -75,7 +83,7 @@
 				<asp:Button ID="BtnListLinkPayment" runat="server" Text="Ödeme Linklerini Listele" class="btn btn-success" OnClick="BtnListLinkPayment_Click" />
 			</div>
 		</div>
-
+        <p>** Başlangış ve Bitiş tarihi parametreleri bir çift olarak çalışmaktadır. Bu nedenle eğer biri istek içine eklenmiş ise, diğerinin de eklenmesi gerekmektedir.</p>
     </fieldset>
 
     <div id="result" runat="server"></div>

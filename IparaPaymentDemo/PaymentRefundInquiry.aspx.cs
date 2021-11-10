@@ -1,30 +1,31 @@
 ﻿using IparaPayment;
 using IparaPayment.Request;
 using IparaPayment.Response;
-using Newtonsoft.Json;
 using System;
+using Newtonsoft.Json;
 
 namespace IparaPaymentDemo
 {
-    public partial class DeleteCardFromWallet : System.Web.UI.Page
+    public partial class PaymentRefundInquiry : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
-                userId.Value = "123456";
+                OrderId.Value = "1550972096";
+                Amount.Value = "1000";
             }
         }
 
-        protected void BtnDeleteCard_Click(object sender, EventArgs e)
+        protected void BtnRefundInquiry_Click(object sender, EventArgs e)
         {
             Settings settings = new();
-            BankCardDeleteRequest request = new();
-            request.UserId = userId.Value;
-            request.CardId = cardId.Value;
+            PaymentRefundInquiryRequest request = new();
+            request.OrderId = OrderId.Value;
+            request.Amount = Amount.Value;
             request.ClientIp = "127.0.0.1";
 
-            BankCardDeleteResponse response = BankCardDeleteRequest.Execute(request, settings);
+            PaymentRefundInquiryResponse response = PaymentRefundInquiryRequest.Execute(request, settings);
             string jsonResponse = JsonConvert.SerializeObject(response, Formatting.Indented);
             result.InnerHtml = "<pre>" + jsonResponse + "</pre>";
         }

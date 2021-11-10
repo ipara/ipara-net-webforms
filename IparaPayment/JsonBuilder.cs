@@ -1,5 +1,4 @@
-﻿using IparaPayment.Request;
-using Newtonsoft.Json;
+﻿using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using System.Net.Http;
 using System.Text;
