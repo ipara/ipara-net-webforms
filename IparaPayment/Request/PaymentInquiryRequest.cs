@@ -1,21 +1,16 @@
 ﻿using IparaPayment.Response;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Serialization;
 
 namespace IparaPayment.Request
 {
+    /// <summary>
+    ///  Ödeme sorgulama servisi için gerekli olan servis girdi parametrelerini temsil eder.
+    /// </summary>
     [XmlRoot("inquiry")]
     public class PaymentInquiryRequest : BaseRequest
     {
-        /// <summary>
-        ///  Ödeme sorugulama servisi için gerekli olan servis girdi parametrelerini temsil eder.
-        /// </summary>
         [XmlElement("orderId")]
-        public string orderId { get; set; }
+        public string OrderId { get; set; }
 
         /// <summary>
         /// Bu servise sorgulanmak istenen ödemenin mağaza sipariş numarası ve mode değeri iletilerek, ödemenin durumu ve ödemenin tutarı öğrenilebileceği servisi temsil eder.
@@ -26,7 +21,7 @@ namespace IparaPayment.Request
         public static PaymentInquiryResponse Execute(PaymentInquiryRequest request, Settings options)
         {
             options.TransactionDate = Helper.GetTransactionDateString();
-            options.HashString = options.PrivateKey + request.orderId + options.Mode + options.TransactionDate;
+            options.HashString = options.PrivateKey + request.OrderId + options.Mode + options.TransactionDate;
             return RestHttpCaller.Create().PostXML<PaymentInquiryResponse>(options.BaseUrl + "rest/payment/inquiry", Helper.GetHttpHeaders(options, Helper.application_xml), request);
         }
     }

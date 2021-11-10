@@ -22,6 +22,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -31,11 +32,9 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
-      <HintPath>..\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
-    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Net.Http" />
@@ -45,6 +44,9 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="Newtonsoft.Json">
+      <HintPath>..\packages\Newtonsoft.Json.13.0.1\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Entity\BankCard.cs" />
@@ -66,9 +68,6 @@
     <Compile Include="Request\LinkPaymentDeleteRequest.cs" />
     <Compile Include="Request\LinkPaymentListRequest.cs" />
     <Compile Include="Request\PaymentInquiryRequest.cs" />
-    <Compile Include="Request\ThreeDPaymentCompleteRequest.cs" />
-    <Compile Include="Request\ThreeDPaymentInitRequest.cs" />
-    <Compile Include="Request\ThreeDPaymentInOneStepRequest.cs" />
     <Compile Include="Response\ApiPaymentResponse.cs" />
     <Compile Include="Response\BankCardCreateResponse.cs" />
     <Compile Include="Response\BankCardDeleteResponse.cs" />
@@ -78,11 +77,21 @@
     <Compile Include="Response\LinkPaymentDeleteResponse.cs" />
     <Compile Include="Response\LinkPaymentListResponse.cs" />
     <Compile Include="Response\PaymentInquiryResponse.cs" />
-    <Compile Include="Response\ThreeDPaymentCompleteResponse.cs" />
-    <Compile Include="Response\ThreeDPaymentInitResponse.cs" />
     <Compile Include="RestHttpCaller.cs" />
     <Compile Include="Settings.cs" />
     <Compile Include="XmlBuilder.cs" />
+    <Compile Include="Entity\InstallmentDetail.cs" />
+    <Compile Include="Request\PaymentRefundRequest.cs" />
+    <Compile Include="Response\PaymentRefundResponse.cs" />
+    <Compile Include="Request\PaymentRefundInquiryRequest.cs" />
+    <Compile Include="Response\PaymentRefundInquiryResponse.cs" />
+    <Compile Include="Request\PaymentInquiryWithTimeRequest.cs" />
+    <Compile Include="Response\PaymentInquiryWithTimeResponse.cs" />
+    <Compile Include="Entity\Payment.cs" />
+    <Compile Include="Request\Non3DPaymentRequest.cs" />
+    <Compile Include="Response\Non3DPaymentResponse.cs" />
+    <Compile Include="Request\ThreeDPaymentRequest.cs" />
+    <Compile Include="Response\ThreeDPaymentResponse.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />

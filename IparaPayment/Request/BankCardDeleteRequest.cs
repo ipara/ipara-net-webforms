@@ -1,9 +1,4 @@
 ﻿using IparaPayment.Response;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace IparaPayment.Request
 {
@@ -12,10 +7,11 @@ namespace IparaPayment.Request
     /// </summary>
     public class BankCardDeleteRequest : BaseRequest
     {
-        public string userId { get; set; }
-        public string cardId { get; set; }
-        public string clientIp { get; set; }
+        public string UserId { get; set; }
 
+        public string CardId { get; set; }
+
+        public string ClientIp { get; set; }
 
         /// <summary>
         /// Mağazanın, kullanıcının bir kartını veya kayıtlı olan tüm kartlarını silmek istediği zaman kullanabileceği servisi temsil eder.
@@ -26,7 +22,7 @@ namespace IparaPayment.Request
         public static BankCardDeleteResponse Execute(BankCardDeleteRequest request, Settings options)
         {
             options.TransactionDate = Helper.GetTransactionDateString();
-            options.HashString = options.PrivateKey + request.userId + request.cardId + request.clientIp + options.TransactionDate;
+            options.HashString = options.PrivateKey + request.UserId + request.CardId + request.ClientIp + options.TransactionDate;
             return RestHttpCaller.Create()
                 .PostJson<BankCardDeleteResponse>(options.BaseUrl + "/bankcard/delete", Helper.GetHttpHeaders(options, Helper.application_json),
                     request);

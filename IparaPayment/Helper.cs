@@ -1,16 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
 using System.Security.Cryptography;
 using System.Net;
-using IparaPayment.Response;
 
 namespace IparaPayment
 {
     public static class Helper
     {
-
         /// <summary>
         /// Constant sabitler
         /// Aşağıdaki sabitler projenin her kısmında bu değişken isimleri ile çağırılmak zorundadır.
@@ -85,28 +81,6 @@ namespace IparaPayment
             headers.Add(transactionDate, settings.TransactionDate);
 
             return headers;
-        }
-
-        
-        /// <summary>
-        /// 3D akışının ilk adımında yapılan işlemin ardından gelen cevabın doğrulanması adına kullanılacak
-        /// fonksiyondur. 
-        /// </summary>
-        /// <param name="paymentResponse"></param>
-        /// <param name="settings"></param>
-        /// <returns></returns>
-        public static bool Validate3DReturn(ThreeDPaymentInitResponse paymentResponse, Settings settings)
-        {
-            if (String.IsNullOrEmpty(paymentResponse.Hash))
-                throw new Exception("Ödeme cevabı hash bilgisi boş. [result : " + paymentResponse.Result + ",error_code : " + paymentResponse.ErrorCode + ",error_message : " + paymentResponse.ErrorMessage + "]");
-
-            string hashText = paymentResponse.OrderId + paymentResponse.Result + paymentResponse.Amount + paymentResponse.Mode + paymentResponse.ErrorCode +
-     paymentResponse.ErrorMessage + paymentResponse.TransactionDate + settings.PublicKey + settings.PrivateKey;
-            var hashedText = Helper.ComputeHash(hashText);
-            if (hashedText != paymentResponse.Hash)
-                throw new Exception("Ödeme cevabı hash doğrulaması hatalı. [result : " + paymentResponse.Result + ",error_code : " + paymentResponse.ErrorCode + ",error_message : " + paymentResponse.ErrorMessage + "]");
-
-            return true;
         }
     }
 }

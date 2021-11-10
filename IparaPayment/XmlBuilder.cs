@@ -1,11 +1,7 @@
-﻿using IparaPayment.Request;
-using System;
-using System.Collections.Generic;
+﻿using System;
 using System.IO;
-using System.Linq;
 using System.Net.Http;
 using System.Text;
-using System.Threading.Tasks;
 using System.Xml;
 using System.Xml.Serialization;
 
@@ -25,11 +21,11 @@ namespace IparaPayment
         /// <returns></returns>
         public static string GetXMLFromObject(object o)
         {
-            StringWriter sw = new StringWriter();
+            StringWriter sw = new();
             XmlTextWriter tw = null;
             try
             {
-                XmlSerializer serializer = new XmlSerializer(o.GetType());
+                XmlSerializer serializer = new(o.GetType());
                 tw = new XmlTextWriter(sw);
                 serializer.Serialize(tw, o);
             }
@@ -54,7 +50,7 @@ namespace IparaPayment
         /// <returns></returns>
         public static StringContent SerializeToXMLString(BaseRequest request)
         {
-            XmlSerializerNamespaces ns = new XmlSerializerNamespaces();
+            XmlSerializerNamespaces ns = new();
             ns.Add("", "");
             var stringwriter = new System.IO.StringWriter();
             var serializer = new XmlSerializer(request.GetType());
@@ -72,9 +68,9 @@ namespace IparaPayment
         {
             try
             {
-                XmlSerializer xs = new XmlSerializer(typeof(T));
-                MemoryStream memoryStream = new MemoryStream(StringToUTF8ByteArray(xmlString));
-                XmlTextWriter xmlTextWriter = new XmlTextWriter(memoryStream, Encoding.UTF8);
+                XmlSerializer xs = new(typeof(T));
+                MemoryStream memoryStream = new(StringToUTF8ByteArray(xmlString));
+                XmlTextWriter xmlTextWriter = new(memoryStream, Encoding.UTF8);
 
                 return (T)Convert.ChangeType(xs.Deserialize(memoryStream), typeof(T));
             }
@@ -90,7 +86,7 @@ namespace IparaPayment
         /// <returns></returns>
         public static Byte[] StringToUTF8ByteArray(String xmlString)
         {
-            UTF8Encoding encoding = new UTF8Encoding();
+            UTF8Encoding encoding = new();
             Byte[] byteArray = encoding.GetBytes(xmlString);
             return byteArray;
         }

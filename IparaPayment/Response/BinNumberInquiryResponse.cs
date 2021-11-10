@@ -34,5 +34,7 @@ namespace IparaPayment.Response
         public string cvcMandatory { get; set; }
 
         public string businessCard { get; set; }
+
+        public List<InstallmentDetail> installmentDetail { get; set; }
     }
 }

@@ -3,11 +3,6 @@ using IparaPayment.Request;
 using IparaPayment.Response;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace IparaPaymentDemo
 {
@@ -25,9 +20,9 @@ namespace IparaPaymentDemo
         {
             Settings settings = new Settings();
             BankCardInquiryRequest request = new BankCardInquiryRequest();
-            request.userId = userId.Value;
-            request.cardId = cardId.Value;
-            request.clientIp = "127.0.0.1";
+            request.UserId = userId.Value;
+            request.CardId = cardId.Value;
+            request.ClientIp = "127.0.0.1";
 
             BankCardInquryResponse response = BankCardInquiryRequest.Execute(request, settings);
             string jsonResponse = JsonConvert.SerializeObject(response, Formatting.Indented);

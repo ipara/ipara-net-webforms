@@ -1,33 +1,34 @@
 ﻿using IparaPayment.Response;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
 
 namespace IparaPayment.Request
 {
     /// <summary>
     /// Linkle Ödeme -> Link Sorgulama/Listeleme Servisi içerisinde kullanılacak alanları temsil eder.
     /// </summary>
-
     public class LinkPaymentListRequest : BaseRequest
     {
-        public string email { get; set; }
-        public string gsm { get; set; }
-        public string linkState { get; set; }
-        public string startDate { get; set; }
-        public string endDate { get; set; }
-        public string pageSize { get; set; }
-        public string pageIndex { get; set; }
-        public string clientIp { get; set; }
+        public string Email { get; set; }
+
+        public string Gsm { get; set; }
+
+        public string LinkState { get; set; }
+
+        public string StartDate { get; set; }
+
+        public string EndDate { get; set; }
+
+        public string PageSize { get; set; }
+
+        public string PageIndex { get; set; }
+
+        public string ClientIp { get; set; }
+
         public static LinkPaymentListResponse Execute(LinkPaymentListRequest request, Settings options)
         {
             options.TransactionDate = Helper.GetTransactionDateString();
-            options.HashString = options.PrivateKey + request.clientIp + options.TransactionDate;
-            LinkPaymentListResponse response = RestHttpCaller.Create().PostJson<LinkPaymentListResponse>(options.BaseUrl + "corporate/merchant/linkpayment/list", Helper.GetHttpHeaders(options, Helper.application_json), request);
-            return response;
+            options.HashString = options.PrivateKey + request.ClientIp + options.TransactionDate;
+            return RestHttpCaller.Create()
+                .PostJson<LinkPaymentListResponse>(options.BaseUrl + "corporate/merchant/linkpayment/list", Helper.GetHttpHeaders(options, Helper.application_json), request);
         }
     }
 }

@@ -11,53 +11,26 @@ namespace IparaPaymentDemo
 {
 
 
-    public partial class Api3DPaymentWithOneStep
+    public partial class NonThreeDPaymentWithWallet
     {
 
         /// <summary>
-        /// nameSurname control.
+        /// userId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText nameSurname;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText userId;
 
         /// <summary>
-        /// cardNumber control.
+        /// cardId control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText cardNumber;
-
-        /// <summary>
-        /// month control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText month;
-
-        /// <summary>
-        /// year control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText year;
-
-        /// <summary>
-        /// cvc control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlInputText cvc;
+        protected global::System.Web.UI.HtmlControls.HtmlInputText cardId;
 
         /// <summary>
         /// installment control.
@@ -69,13 +42,13 @@ namespace IparaPaymentDemo
         protected global::System.Web.UI.HtmlControls.HtmlSelect installment;
 
         /// <summary>
-        /// BtnApi3DPaymentInOneStep control.
+        /// BtnApiPaymentWithWallet control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Button BtnApi3DPaymentInOneStep;
+        protected global::System.Web.UI.WebControls.Button BtnApiPaymentWithWallet;
 
         /// <summary>
         /// result control.

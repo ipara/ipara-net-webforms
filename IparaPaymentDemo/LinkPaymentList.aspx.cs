@@ -3,11 +3,6 @@ using IparaPayment.Request;
 using IparaPayment.Response;
 using Newtonsoft.Json;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Web;
-using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace IparaPaymentDemo
 {
@@ -15,26 +10,30 @@ namespace IparaPaymentDemo
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            email.Value = "mail@example.com";
-
+            email.Value = "fatih@domain.com";
         }
 
         protected void BtnListLinkPayment_Click(object sender, EventArgs e)
         {
-            Settings settings = new Settings();
-            LinkPaymentListRequest request = new LinkPaymentListRequest();
-            request.email = email.Value;
-            request.gsm = gsm.Value;
-            request.linkState = linkState.Value != "-1" ? linkState.Value : null;
-            request.startDate = null;
-            request.endDate = null;
-            // request.expireDate = year.Value + "-" + month.Value + "-" + day.Value + " 23:59:59";
-            //int[] i = new int[1];
-            //i[0] = Convert.ToInt32(installmentList.Value);
-            //request.installmentList = i;
-            request.pageSize = "5";
-            request.pageIndex = "1";
-            request.clientIp = "127.0.0.1";
+            Settings settings = new();
+            LinkPaymentListRequest request = new();
+            request.Email = email.Value;
+            request.Gsm = gsm.Value;
+            request.LinkState = linkState.Value != "-1" ? linkState.Value : null;
+
+            request.StartDate = null;
+            request.EndDate = null;
+            if (start_year.Value != "" && start_month.Value != "" && start_day.Value != "")
+            {
+                request.StartDate = start_year.Value + "-" + start_month.Value + "-" + start_day.Value + " 00:00:00";
+            }
+            if (end_year.Value != "" && end_month.Value != "" && end_day.Value != "")
+            {
+                request.EndDate = end_year.Value + "-" + end_month.Value + "-" + end_day.Value + " 00:00:00";
+            }
+            request.PageSize = pageSize.Value;
+            request.PageIndex = pageIndex.Value;
+            request.ClientIp = "127.0.0.1";
 
             LinkPaymentListResponse response = LinkPaymentListRequest.Execute(request, settings);
             string jsonResponse = JsonConvert.SerializeObject(response, Formatting.Indented);

@@ -32,6 +32,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <DebugType>pdbonly</DebugType>
@@ -41,6 +42,7 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
     <Prefer32Bit>false</Prefer32Bit>
+    <LangVersion>latest</LangVersion>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.CSharp" />
@@ -49,7 +51,6 @@
     </Reference>
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.DynamicData" />
-    <Reference Include="System.Web.Entity" />
     <Reference Include="System.Web.ApplicationServices" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System" />
@@ -65,10 +66,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="AddCardToWallet.aspx" />
-    <Content Include="Api3DPaymentInOneStep.aspx" />
-    <Content Include="Api3DPaymentWithWallet.aspx" />
-    <Content Include="ApiPayment.aspx" />
-    <Content Include="ApiPaymentWithWallet.aspx" />
+    <Content Include="NonThreeDPayment.aspx" />
+    <Content Include="NonThreeDPaymentWithWallet.aspx" />
     <Content Include="BinInquiry.aspx" />
     <Content Include="Content\bootstrap.css" />
     <Content Include="Content\bootstrap.min.css" />
@@ -83,7 +82,6 @@
     <Content Include="LinkPaymentList.aspx" />
     <Content Include="PaymentInquiry.aspx" />
     <Content Include="Site.Master" />
-    <Content Include="OneClickThreeDResult.aspx" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
@@ -91,9 +89,10 @@
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+    <Content Include="PaymentRefund.aspx" />
+    <Content Include="PaymentRefundInquiry.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="ThreeDResult.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -104,33 +103,19 @@
     <Compile Include="AddCardToWallet.aspx.designer.cs">
       <DependentUpon>AddCardToWallet.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Api3DPaymentInOneStep.aspx.cs">
-      <DependentUpon>Api3DPaymentInOneStep.aspx</DependentUpon>
+    <Compile Include="NonThreeDPayment.aspx.cs">
+      <DependentUpon>NonThreeDPayment.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Api3DPaymentInOneStep.aspx.designer.cs">
-      <DependentUpon>Api3DPaymentInOneStep.aspx</DependentUpon>
+    <Compile Include="NonThreeDPayment.aspx.designer.cs">
+      <DependentUpon>NonThreeDPayment.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Api3DPaymentWithWallet.aspx.cs">
-      <DependentUpon>Api3DPaymentWithWallet.aspx</DependentUpon>
+    <Compile Include="NonThreeDPaymentWithWallet.aspx.cs">
+      <DependentUpon>NonThreeDPaymentWithWallet.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Api3DPaymentWithWallet.aspx.designer.cs">
-      <DependentUpon>Api3DPaymentWithWallet.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ApiPayment.aspx.cs">
-      <DependentUpon>ApiPayment.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ApiPayment.aspx.designer.cs">
-      <DependentUpon>ApiPayment.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="ApiPaymentWithWallet.aspx.cs">
-      <DependentUpon>ApiPaymentWithWallet.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="ApiPaymentWithWallet.aspx.designer.cs">
-      <DependentUpon>ApiPaymentWithWallet.aspx</DependentUpon>
+    <Compile Include="NonThreeDPaymentWithWallet.aspx.designer.cs">
+      <DependentUpon>NonThreeDPaymentWithWallet.aspx</DependentUpon>
     </Compile>
     <Compile Include="BinInquiry.aspx.cs">
       <DependentUpon>BinInquiry.aspx</DependentUpon>
@@ -196,19 +181,19 @@
     <Compile Include="Site.Master.designer.cs">
       <DependentUpon>Site.Master</DependentUpon>
     </Compile>
-    <Compile Include="ThreeDResult.aspx.cs">
-      <DependentUpon>ThreeDResult.aspx</DependentUpon>
+    <Compile Include="PaymentRefund.aspx.cs">
+      <DependentUpon>PaymentRefund.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="ThreeDResult.aspx.designer.cs">
-      <DependentUpon>ThreeDResult.aspx</DependentUpon>
+    <Compile Include="PaymentRefund.aspx.designer.cs">
+      <DependentUpon>PaymentRefund.aspx</DependentUpon>
     </Compile>
-    <Compile Include="OneClickThreeDResult.aspx.cs">
-      <DependentUpon>OneClickThreeDResult.aspx</DependentUpon>
+    <Compile Include="PaymentRefundInquiry.aspx.cs">
+      <DependentUpon>PaymentRefundInquiry.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="OneClickThreeDResult.aspx.designer.cs">
-      <DependentUpon>OneClickThreeDResult.aspx</DependentUpon>
+    <Compile Include="PaymentRefundInquiry.aspx.designer.cs">
+      <DependentUpon>PaymentRefundInquiry.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
@@ -241,6 +226,11 @@
         </WebProjectProperties>
       </FlavorProperties>
     </VisualStudio>
+    <MonoDevelop>
+      <Properties>
+        <XspParameters Port="8080" Address="127.0.0.1" SslMode="None" SslProtocol="Default" KeyType="None" CertFile="" KeyFile="" PasswordOptions="None" Password="" Verbose="True" />
+      </Properties>
+    </MonoDevelop>
   </ProjectExtensions>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

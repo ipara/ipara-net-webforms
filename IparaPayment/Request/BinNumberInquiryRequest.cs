@@ -1,8 +1,4 @@
 ﻿using IparaPayment.Response;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
 namespace IparaPayment.Request
 {
@@ -11,7 +7,11 @@ namespace IparaPayment.Request
         /// <summary>
         /// Bin Sorgulama servisleri içerisinde kullanılacak olan bin numarasını temsil eder.
         /// </summary>
-        public string binNumber { get; set; }
+        public string BinNumber { get; set; }
+
+        public string Amount { get; set; }
+
+        public string ThreeD { get; set; }
 
         /// <summary>
         /// Türkiye genelinde tanımlı olan tüm yerli kartlara ait BIN numaraları için sorgulama yapılmasına izin veren servisi temsil eder. 
@@ -22,8 +22,8 @@ namespace IparaPayment.Request
         public static BinNumberInquiryResponse Execute(BinNumberInquiryRequest request, Settings options)
         {
             options.TransactionDate = Helper.GetTransactionDateString();
-            options.HashString = options.PrivateKey + request.binNumber + options.TransactionDate;
-            return RestHttpCaller.Create().PostJson<BinNumberInquiryResponse>(options.BaseUrl + "rest/payment/bin/lookup", Helper.GetHttpHeaders(options, Helper.application_json), request);
+            options.HashString = options.PrivateKey + request.BinNumber + options.TransactionDate;
+            return RestHttpCaller.Create().PostJson<BinNumberInquiryResponse>(options.BaseUrl + "rest/payment/bin/lookup/v2", Helper.GetHttpHeaders(options, Helper.application_json), request);
         }
     }
 }

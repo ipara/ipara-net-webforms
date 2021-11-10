@@ -1,12 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 using Newtonsoft.Json;
 using System.Net;
 using System.Net.Http;
-using IparaPayment.Request;
-
 
 namespace IparaPayment
 {
@@ -23,7 +18,7 @@ namespace IparaPayment
 
         public T GetJson<T>(String url)
         {
-            HttpClient httpClient = new HttpClient();
+            HttpClient httpClient = new();
             HttpResponseMessage httpResponseMessage = httpClient.GetAsync(url).Result;
 
             return JsonConvert.DeserializeObject<T>(httpResponseMessage.Content.ReadAsStringAsync().Result);
@@ -39,7 +34,7 @@ namespace IparaPayment
         /// <returns></returns>
         public T PostJson<T>(String url, WebHeaderCollection headers, BaseRequest request)
         {
-            HttpClient httpClient = new HttpClient();
+            HttpClient httpClient = new();
             foreach (String key in headers.Keys)
             {
                 httpClient.DefaultRequestHeaders.Add(key, headers.Get(key));
@@ -54,7 +49,7 @@ namespace IparaPayment
 
         public T GetXML<T>(String url)
         {
-            HttpClient httpClient = new HttpClient();
+            HttpClient httpClient = new();
             HttpResponseMessage httpResponseMessage = httpClient.GetAsync(url).Result;
 
             return JsonConvert.DeserializeObject<T>(httpResponseMessage.Content.ReadAsStringAsync().Result);
@@ -71,7 +66,7 @@ namespace IparaPayment
         /// <returns></returns>
         public T PostXML<T>(String url, WebHeaderCollection headers, BaseRequest request)
         {
-            HttpClient httpClient = new HttpClient();
+            HttpClient httpClient = new();
             foreach (String key in headers.Keys)
             {
                 httpClient.DefaultRequestHeaders.Add(key, headers.Get(key));
