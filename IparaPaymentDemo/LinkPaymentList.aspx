@@ -20,6 +20,12 @@
             </div>
         </div>
         <div class="form-group">
+            <label class="col-md-4 control-label" for="">Link Id (Opsiyonel):</label>
+            <div class="col-md-4">
+                <input value="" id="linkId"  class="form-control input-md" runat="server">
+            </div>
+        </div>
+        <div class="form-group">
             <label class="col-md-4 control-label" for="">Başlangıç Tarihi (Opsiyonel) (**):</label>
             <div class="col-md-4 form-inline">
                 <input runat="server" id="start_day" class="form-control input-md" style="width: 80px; text-align: center;" maxlength="2">
