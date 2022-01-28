@@ -21,6 +21,10 @@ namespace IparaPaymentDemo
             request.Gsm = gsm.Value;
             request.LinkState = linkState.Value != "-1" ? linkState.Value : null;
 
+            if (!String.IsNullOrEmpty(linkId.Value))
+            {
+                request.LinkId = linkId.Value;
+            }
             request.StartDate = null;
             request.EndDate = null;
             if (start_year.Value != "" && start_month.Value != "" && start_day.Value != "")
