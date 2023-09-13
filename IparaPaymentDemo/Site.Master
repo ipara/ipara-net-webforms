@@ -45,6 +45,7 @@ Inherits="IparaPaymentDemo.Site1" %>
                             <a href="PaymentInquiry.aspx">Ödeme Sorgulama</a>
                         </li>
                         <li><a href="BinInquiry.aspx">Bin Sorgulama</a></li>
+                        <li><a href="BinInquiryV4.aspx">Bin Sorgulama V4</a></li>
                         <li>
                             <a href="AddCardToWallet.aspx"
                                 >Cüzdana Kart Ekle
@@ -85,6 +86,9 @@ Inherits="IparaPaymentDemo.Site1" %>
                         </li>
                         <li>
                             <a href="PaymentRefund.aspx">İade</a>
+                        </li>
+                        <li>
+                            <a href="CheckoutFormCreate.aspx">Checkout Form Oluşturma</a>
                         </li>
                     </ul>
                 </div>

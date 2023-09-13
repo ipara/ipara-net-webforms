@@ -91,6 +91,8 @@
     </None>
     <Content Include="PaymentRefund.aspx" />
     <Content Include="PaymentRefundInquiry.aspx" />
+    <Content Include="BinInquiryV4.aspx" />
+    <Content Include="CheckoutFormCreate.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Web.config" />
@@ -194,6 +196,20 @@
     </Compile>
     <Compile Include="PaymentRefundInquiry.aspx.designer.cs">
       <DependentUpon>PaymentRefundInquiry.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="BinInquiryV4.aspx.cs">
+      <DependentUpon>BinInquiryV4.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="BinInquiryV4.aspx.designer.cs">
+      <DependentUpon>BinInquiryV4.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CheckoutFormCreate.aspx.cs">
+      <DependentUpon>CheckoutFormCreate.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CheckoutFormCreate.aspx.designer.cs">
+      <DependentUpon>CheckoutFormCreate.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
