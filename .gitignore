@@ -9,3 +9,4 @@
 */config
 .vs/config/applicationhost.config
 IparaPaymentDemo/*.user
+.ionide/symbolCache.db
