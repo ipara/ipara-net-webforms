@@ -92,6 +92,11 @@
     <Compile Include="Response\Non3DPaymentResponse.cs" />
     <Compile Include="Request\ThreeDPaymentRequest.cs" />
     <Compile Include="Response\ThreeDPaymentResponse.cs" />
+    <Compile Include="Entity\RequiredAmountWithCCommDTO.cs" />
+    <Compile Include="Request\BinNumberInquiryV4Request.cs" />
+    <Compile Include="Request\CheckoutFormCreateRequest.cs" />
+    <Compile Include="Response\BinNumberInquiryV4Response.cs" />
+    <Compile Include="Response\CheckoutFormCreateResponse.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
